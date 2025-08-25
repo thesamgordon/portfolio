@@ -6,12 +6,11 @@ import {
   cubicBezier,
   easeInOut,
   motion,
-  MotionValue,
   useMotionTemplate,
   useScroll,
   useTransform,
 } from "motion/react";
-import { useEffect, useMemo } from "react";
+import { useMemo } from "react";
 
 export default function HomePage() {
   const { scrollY } = useScroll();
@@ -63,6 +62,8 @@ export default function HomePage() {
         style={{
           backgroundColor: "transparent",
           height: "100vh",
+          zIndex: -1,
+          pointerEvents: "none",
         }}
       ></div>
       <motion.div
@@ -72,12 +73,73 @@ export default function HomePage() {
           left: 0,
           right: 0,
           bottom: 0,
-          zIndex: -1,
+          zIndex: 0,
           filter: filter,
           scale: scale,
+          pointerEvents: "auto",
         }}
       >
         <HeroSection />
+      </motion.div>
+      <motion.div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between",
+          alignItems: "stretch",
+          position: "absolute",
+          overflow: "visible",
+          left: 0,
+          top: "100vh",
+          width: "100%",
+          zIndex: 0,
+        }}
+      >
+        <motion.div
+          style={{
+            backgroundColor: "white",
+            height: cubeHeights[0],
+            flex: 1,
+            transform: templates[0],
+            borderRadius: "400px 400px 0 0",
+          }}
+        />
+        <motion.div
+          style={{
+            backgroundColor: "white",
+            height: cubeHeights[1],
+            flex: 1,
+            transform: templates[1],
+            borderRadius: "400px 400px 0 0",
+          }}
+        />
+        <motion.div
+          style={{
+            backgroundColor: "white",
+            height: cubeHeights[2],
+            flex: 1,
+            transform: templates[2],
+            borderRadius: "400px 400px 0 0",
+          }}
+        />
+        <motion.div
+          style={{
+            backgroundColor: "white",
+            height: cubeHeights[3],
+            flex: 1,
+            transform: templates[3],
+            borderRadius: "400px 400px 0 0",
+          }}
+        />
+        <motion.div
+          style={{
+            backgroundColor: "white",
+            height: cubeHeights[4],
+            flex: 1,
+            transform: templates[4],
+            borderRadius: "400px 400px 0 0",
+          }}
+        />
       </motion.div>
       <div
         style={{
@@ -85,70 +147,10 @@ export default function HomePage() {
           overflow: "visible",
         }}
       >
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "space-between",
-            alignItems: "stretch",
-            position: "relative",
-            overflow: "visible",
-            left: 0,
-            top: 1,
-            width: "100%",
-            zIndex: -1,
-          }}
-        >
-          <motion.div
-            style={{
-              backgroundColor: "white",
-              height: cubeHeights[0],
-              flex: 1,
-              transform: templates[0],
-              borderRadius: "400px 400px 0 0",
-            }}
-          />
-          <motion.div
-            style={{
-              backgroundColor: "white",
-              height: cubeHeights[1],
-              flex: 1,
-              transform: templates[1],
-              borderRadius: "400px 400px 0 0",
-            }}
-          />
-          <motion.div
-            style={{
-              backgroundColor: "white",
-              height: cubeHeights[2],
-              flex: 1,
-              transform: templates[2],
-              borderRadius: "400px 400px 0 0",
-            }}
-          />
-          <motion.div
-            style={{
-              backgroundColor: "white",
-              height: cubeHeights[3],
-              flex: 1,
-              transform: templates[3],
-              borderRadius: "400px 400px 0 0",
-            }}
-          />
-          <motion.div
-            style={{
-              backgroundColor: "white",
-              height: cubeHeights[4],
-              flex: 1,
-              transform: templates[4],
-              borderRadius: "400px 400px 0 0",
-            }}
-          />
-        </div>
         <motion.div
           style={{
-            marginTop: useTransform(scrollY, [0, 1000], [0, -1500], {
-              ease: cubicBezier(0.4, 0.1, 0.2, 1),
+            marginTop: useTransform(scrollY, [0, 400], [200, 0], {
+              ease: cubicBezier(0.4, 0.2, 0.5, 1),
             }),
           }}
         >

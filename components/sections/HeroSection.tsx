@@ -149,7 +149,7 @@ export default function HeroSection() {
     <section>
       <div
         style={{
-          height: `calc(100vh - ${
+          height: `calc(100dvh - ${
             width > 1300 ? "14rem" : width > 1050 ? "10rem" : "6rem"
           })`,
           display: "flex",
