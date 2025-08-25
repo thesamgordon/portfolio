@@ -40,6 +40,8 @@ export default function Background({ loadCallback }: BackgroundProps) {
           }}
           style={{
             position: "absolute",
+            width: "100%",
+            height: "100%",
             top: 0,
             right: 0,
             opacity: loaded ? 1 : 0,
