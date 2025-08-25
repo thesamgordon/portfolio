@@ -3,7 +3,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { Easing, motion } from "motion/react";
 import Button from "@/components/Button";
-import Background from "@/components/Background";
 import useWindowDimensions from "@/app/hooks/useWindowDimensions";
 
 const ease: Easing = [1, 0, 0.5, 1];
@@ -75,7 +74,7 @@ const AnimatedButtonRow = ({
         key={url}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: index * 0.2 + 0.8, duration: 1, ease }}
+        transition={{ delay: index * 0.2 + 1.2, duration: 1, ease }}
       >
         <Button title={title} url={url} />
       </motion.div>
@@ -106,6 +105,31 @@ export default function HeroSection() {
         ? "1.5rem"
         : width > 875
         ? "1.4rem"
+        : ".8rem",
+    width:
+      width > 1300
+        ? "55rem"
+        : width > 1050
+        ? "40rem"
+        : width > 875
+        ? "35rem"
+        : "100%",
+    color: "#0000",
+    margin: 0,
+    lineHeight: 1.1,
+    fontWeight: 700,
+    marginTop: width > 1300 ? "1rem" : width > 1050 ? "0rem" : "0",
+    transform: "translate3d(0, 0, 0)",
+  };
+
+  const descriptionStyle = {
+    fontSize:
+      width > 1300
+        ? "2rem"
+        : width > 1050
+        ? "1.5rem"
+        : width > 875
+        ? "1.4rem"
         : "1rem",
     width:
       width > 1300
@@ -119,23 +143,28 @@ export default function HeroSection() {
     margin: 0,
     lineHeight: 1.1,
     fontWeight: 300,
-    marginTop: "1rem",
-    marginBottom: "1rem",
+    marginTop: "0rem",
+    marginBottom: "1.5rem",
     transform: "translate3d(0, 0, 0)",
   };
 
-  const title = "Loudbook".split("");
+  const title = "Sam Gordon".split("");
   const subtitle = useMemo(
+    () => '"Programming in the spotlight."'.split(" ").map((w) => w.split("")),
+    []
+  );
+
+  const description = useMemo(
     () =>
-      "An open source developer focusing on usability and perfection down to the smallest detail."
+      "An avid theater enthusiast and a passionate developer. I work to create technology that enhances both the performing arts and the developer experience."
         .split(" ")
         .map((w) => w.split("")),
     []
   );
 
-  const footerWords = ["developer", "designer"];
+  const footerWords = ["developer", "theater technician"];
   const links: Record<string, string> = {
-    "https://github.com/Loudbooks": "GitHub",
+    "https://github.com/Loudbooks": "Resume",
     "mailto:contact@loudbook.dev": "Email",
   };
 
@@ -157,7 +186,7 @@ export default function HeroSection() {
           alignItems: "center",
           justifyContent: "space-between",
           margin: width > 1300 ? "7rem" : width > 1050 ? "5rem" : "3rem",
-          gap: width > 1300 ? "10rem" : width > 1050 ? "7rem" : "4rem",
+          gap: width > 1300 ? "5rem" : width > 1050 ? "5rem" : "4rem",
           position: "relative",
         }}
       >
@@ -165,7 +194,7 @@ export default function HeroSection() {
           style={{
             display: "flex",
             flexDirection: "row",
-            gap: width > 1300 ? "7rem" : width > 1050 ? "5rem" : "3rem",
+            gap: width > 1300 ? "5rem" : width > 1050 ? "5rem" : "3rem",
             width: "100%",
             height: "100%",
           }}
@@ -176,10 +205,10 @@ export default function HeroSection() {
               flexDirection: "column",
             }}
             initial={{
-              gap: width > 1300 ? "50px" : width > 1050 ? "2rem" : "1rem",
+              gap: width > 1300 ? "30px" : width > 1050 ? "2rem" : "1rem",
             }}
             animate={{
-              gap: width > 1300 ? "20px" : width > 1050 ? ".5rem" : ".25rem",
+              gap: width > 1300 ? "10px" : width > 1050 ? ".5rem" : ".25rem",
             }}
             transition={{ delay: 0.8, duration: 1, ease }}
           >
@@ -198,12 +227,18 @@ export default function HeroSection() {
                 <AnimatedLetter key={i} letter={letter} delay={i * 0.05} />
               ))}
             </h1>
-
-            <p style={subtitleStyle}>
-              {subtitle.map((word, i) => (
-                <AnimatedWord key={i} word={word} baseDelay={i} />
-              ))}
-            </p>
+            <div>
+              <p style={subtitleStyle}>
+                {subtitle.map((word, i) => (
+                  <AnimatedWord key={i} word={word} baseDelay={i} />
+                ))}
+              </p>
+              <p style={descriptionStyle}>
+                {description.map((word, i) => (
+                  <AnimatedWord key={i} word={word} baseDelay={i} />
+                ))}
+              </p>
+            </div>
 
             <AnimatedButtonRow links={links} width={width} />
           </motion.div>
