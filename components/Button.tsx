@@ -12,7 +12,7 @@ export default function Button({ title, url }: ButtonProps) {
 
   const buttonStyle: React.CSSProperties = {
     display: "flex",
-    width: width > 1000 ? 220 : 150,
+    width: width > 1000 ? 250 : 150,
     height: width > 1000 ? 57 : 40,
     alignItems: "center",
     justifyContent: "center",

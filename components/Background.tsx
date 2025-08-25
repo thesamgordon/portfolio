@@ -52,35 +52,35 @@ export default function Background({ loadCallback }: BackgroundProps) {
             zIndex: -2,
           }}
         />
-      </div>
 
-      <div
-        id="filter-container"
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          opacity: 0.4,
-          mixBlendMode: "overlay",
-          zIndex: -1,
-        }}
-      >
         <div
+          id="filter-container"
           style={{
             position: "absolute",
             top: 0,
             left: 0,
             width: "100%",
             height: "100%",
-            backgroundImage: "url('/background-grain.webp')",
-            backgroundRepeat: "repeat",
-            opacity: loaded ? 0.6 : 0,
-            backgroundSize: "200px",
+            opacity: 0.4,
+            mixBlendMode: "overlay",
             zIndex: -1,
           }}
-        />
+        >
+          <div
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+              backgroundImage: "url('/background-grain.webp')",
+              backgroundRepeat: "repeat",
+              opacity: loaded ? 0.6 : 0,
+              backgroundSize: "200px",
+              zIndex: -1,
+            }}
+          />
+        </div>
       </div>
     </>
   );

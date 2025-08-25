@@ -3,6 +3,7 @@ import Background from "@/components/Background";
 import Bars from "@/components/sections/Bars";
 import HeroSection from "@/components/sections/HeroSection";
 import ProjectSection from "@/components/sections/ProjectSection";
+
 import {
   cubicBezier,
   easeInOut,
@@ -11,7 +12,6 @@ import {
   useScroll,
   useTransform,
 } from "motion/react";
-import { useMemo } from "react";
 
 export default function HomePage() {
   const { scrollY } = useScroll();
@@ -56,8 +56,8 @@ export default function HomePage() {
       <Bars />
       <motion.div
         style={{
-          marginTop: useTransform(scrollY, [0, 400], [200, 0], {
-            ease: cubicBezier(0.4, 0.2, 0.5, 1),
+          marginTop: useTransform(scrollY, [0, 900], [200, -600], {
+            ease: cubicBezier(1, 0.8, 0.5, 1),
           }),
         }}
       >

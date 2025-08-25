@@ -150,7 +150,7 @@ export default function HeroSection() {
 
   const title = "Sam Gordon".split("");
   const subtitle = useMemo(
-    () => '"Programming in the spotlight."'.split(" ").map((w) => w.split("")),
+    () => 'Programming in the spotlight.'.split(" ").map((w) => w.split("")),
     []
   );
 
@@ -164,8 +164,8 @@ export default function HeroSection() {
 
   const footerWords = ["developer", "theater technician"];
   const links: Record<string, string> = {
-    "https://github.com/Loudbooks": "Resume",
-    "mailto:contact@loudbook.dev": "Email",
+    // "https://github.com/Loudbooks": "Resume",
+    "mailto:contact@loudbook.dev": "Contact",
   };
 
   useEffect(() => {
