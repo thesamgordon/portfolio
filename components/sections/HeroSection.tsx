@@ -248,7 +248,7 @@ export default function HeroSection() {
               transform: "translateY(-40px) translateX(40px)",
             }}
             animate={{ opacity: 1, transform: "translateY(0) translateX(0)" }}
-            transition={{ delay: 1.2, duration: 1, ease }}
+            transition={{ delay: 1.8, duration: 1, ease }}
             style={{
               width: "100%",
               height: "100%",
@@ -285,7 +285,7 @@ export default function HeroSection() {
                 transform: "translateY(40px) translateX(-40px)",
               }}
               animate={{ opacity: 1, transform: "translateY(0) translateX(0)" }}
-              transition={{ delay: 1.2, duration: 1, ease }}
+              transition={{ delay: 1.8, duration: 1, ease }}
               style={{
                 width: "100%",
                 height: "100%",
