@@ -88,7 +88,7 @@ export default function ProjectSection() {
           >
             Tedious tasks are a thing of the past. I create tools that help you
             automate your workflow and improve your productivity, whether it be
-            you're building an app or writing cues in a theater.
+            you&apos;re building an app or writing cues in a theater.
           </p>
         </div>
 
