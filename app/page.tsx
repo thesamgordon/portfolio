@@ -12,6 +12,7 @@ import {
   useScroll,
   useTransform,
 } from "motion/react";
+import { useRef } from "react";
 
 export default function HomePage() {
   const { scrollY } = useScroll();
@@ -25,6 +26,19 @@ export default function HomePage() {
   const scale = useTransform(scrollY, [0, 1000], [1, 0.8], {
     ease: cubicBezier(0.4, 0.1, 0.2, 1),
   });
+
+  const secondRef = useRef<HTMLDivElement>(null);
+
+  const { scrollY: secondScrollY } = useScroll({
+    target: secondRef,
+    offset: ["start end", "start start"],
+  });
+
+  const width = useTransform(secondScrollY, [600, 800], [80, 60], {
+    ease: cubicBezier(0.4, 0.1, 0.2, 1),
+  });
+
+  const widthTemplate = useMotionTemplate`${width}%`;
 
   return (
     <main>
@@ -55,14 +69,50 @@ export default function HomePage() {
 
       <Bars />
       <motion.div
+        ref={secondRef}
         style={{
-          marginTop: useTransform(scrollY, [0, 900], [200, -600], {
+          marginTop: useTransform(scrollY, [0, 900], [200, -400], {
             ease: cubicBezier(1, 0.8, 0.5, 1),
           }),
         }}
       >
         <ProjectSection />
       </motion.div>
+      <div
+        style={{
+          position: "relative",
+          overflow: "hidden",
+          width: "100%",
+        }}
+      >
+        <motion.div
+          style={{
+            backgroundColor: "white",
+            height: "20vh",
+            width: widthTemplate,
+            borderTopRightRadius: "200px",
+            borderBottomRightRadius: "200px",
+            zIndex: -1,
+            pointerEvents: "none",
+          }}
+        ></motion.div>
+        <h1
+          style={{
+            fontWeight: 900,
+            textAlign: "right",
+            fontSize: "10vh",
+            margin: 0,
+            lineHeight: .67,
+            position: "absolute",
+            bottom: 0,
+            right: 0,
+            color: "white",
+            letterSpacing: "-0.03em"
+          }}
+        >
+          Sam Gordon
+        </h1>
+      </div>
     </main>
   );
 }

@@ -113,10 +113,11 @@ export default function ProjectSection() {
               <Card
                 title="Sheet Snip"
                 description="Convert your microphone mute sheets into QLab MIDI cues with the click of a button."
-                lastUpdated="Spring 2025"
+                lastUpdated="Python"
                 rotation={-3}
                 zIndex={0}
                 image={QLabImage}
+                contact={true}
               />
             </motion.div>
             <motion.div
@@ -126,27 +127,29 @@ export default function ProjectSection() {
               }}
             >
               <Card
-                title="Sheet Snip"
-                description="Convert your microphone mute sheets into QLab MIDI cues with the click of a button."
-                lastUpdated="Spring 2025"
+                title="PasteBook"
+                description="Drop your text into a quick pastebin for easy sharing with many customizable options."
+                lastUpdated="Rust/Svelte"
                 rotation={3}
                 zIndex={1}
                 image={QLabImage}
+                link="https://pastebook.dev/about"
               />
             </motion.div>
             <motion.div
               style={{
                 marginBottom: gapTemplate,
-                transform: offsetLeftSmallTemplate
+                transform: offsetLeftSmallTemplate,
               }}
             >
               <Card
-                title="Sheet Snip"
-                description="Convert your microphone mute sheets into QLab MIDI cues with the click of a button."
-                lastUpdated="Spring 2025"
+                title="ReportBook"
+                description="Generate a diagnostic report of your device to assist with troubleshooting."
+                lastUpdated="Rust/Tauri"
                 rotation={-1}
                 zIndex={2}
                 image={QLabImage}
+                link="https://github.com/Loudbooks/ReportBook"
               />
             </motion.div>
           </motion.div>

@@ -34,12 +34,6 @@ export default function Bars() {
     (transform) => useMotionTemplate`translateY(-${transform}px)`
   );
 
-  const offset = useTransform(scrollY, [0, 1000], [400, -400], {});
-
-  const offsetTemplates = cubeTransforms.map(
-    (transform) => useMotionTemplate`${transform}px)`
-  );
-
   return (
     <motion.div
       style={{
@@ -53,6 +47,7 @@ export default function Bars() {
         top: "100vh",
         width: "100%",
         zIndex: 0,
+        height: 0
       }}
     >
       <motion.div
