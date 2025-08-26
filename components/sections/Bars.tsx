@@ -57,7 +57,7 @@ export default function Bars() {
         position: "absolute",
         overflow: "visible",
         left: 0,
-        top: "100vh",
+        top: "110vh",
         width: "100%",
         zIndex: 0,
         height: 0,

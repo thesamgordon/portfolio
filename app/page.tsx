@@ -48,7 +48,7 @@ export default function HomePage() {
       <div
         style={{
           backgroundColor: "transparent",
-          height: "100vh",
+          height: "100dvh",
           zIndex: -1,
           pointerEvents: "none",
         }}

@@ -45,7 +45,7 @@ export default function ProjectSection() {
   return (
     <section
       style={{
-        height: width > 1300 ? "100vh" : width > 1050 ? "120vh" : "150vh",
+        height: width > 1300 ? "100vh" : width > 1050 ? "120vh" : "200vh",
         backgroundColor: "white",
         zIndex: 0,
         position: "relative",
