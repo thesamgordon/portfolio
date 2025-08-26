@@ -47,10 +47,10 @@ const AnimatedWord = ({
       <AnimatedLetter
         key={j}
         letter={letter}
-        delay={(baseDelay + j * 0.1) * 0.05}
+        delay={(baseDelay + j * 0.01) * 0.05}
       />
     ))}
-    <AnimatedLetter letter=" " delay={(baseDelay + word.length * 0.1) * 0.05} />
+    <AnimatedLetter letter=" " delay={(baseDelay + word.length * 0.01) * 0.01} />
   </span>
 );
 
@@ -74,7 +74,7 @@ const AnimatedButtonRow = ({
         key={url}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: index * 0.2 + 1.2, duration: 1, ease }}
+        transition={{ delay: index * 0.02 + 1.2, duration: 1, ease }}
       >
         <Button title={title} url={url} />
       </motion.div>
@@ -210,7 +210,7 @@ export default function HeroSection() {
             animate={{
               gap: width > 1300 ? "10px" : width > 1050 ? ".5rem" : ".25rem",
             }}
-            transition={{ delay: 0.8, duration: 1, ease }}
+            transition={{ delay: 0.2, duration: 1, ease }}
           >
             <h1
               style={{
@@ -248,7 +248,7 @@ export default function HeroSection() {
               transform: "translateY(-40px) translateX(40px)",
             }}
             animate={{ opacity: 1, transform: "translateY(0) translateX(0)" }}
-            transition={{ delay: 1.8, duration: 1, ease }}
+            transition={{ delay: 2.5, duration: 1, ease }}
             style={{
               width: "100%",
               height: "100%",
@@ -285,7 +285,7 @@ export default function HeroSection() {
                 transform: "translateY(40px) translateX(-40px)",
               }}
               animate={{ opacity: 1, transform: "translateY(0) translateX(0)" }}
-              transition={{ delay: 1.8, duration: 1, ease }}
+              transition={{ delay: 2.5, duration: 1, ease }}
               style={{
                 width: "100%",
                 height: "100%",
@@ -318,7 +318,7 @@ export default function HeroSection() {
                     <AnimatedLetter
                       key={i}
                       letter={letter}
-                      delay={i * 0.05 + 1.5}
+                      delay={i * 0.05 + .4}
                     />
                   ))}
                 </h1>

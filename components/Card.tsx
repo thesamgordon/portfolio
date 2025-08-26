@@ -39,6 +39,8 @@ export default function Card({
             fontSize: "1.5rem",
             fontWeight: 900,
             display: "inline-block",
+            margin: "0",
+            color: "#303030ff",
           }}
         >
           {title}
@@ -61,6 +63,7 @@ export default function Card({
             fontSize: "1rem",
             fontWeight: 400,
             marginBottom: "-10px",
+            color: "#303030ff",
           }}
         >
           {description}
@@ -105,6 +108,7 @@ export default function Card({
                 textDecoration: "underline",
                 lineHeight: "1rem",
                 transform: "translateY(-1.5px)",
+                color: "#303030ff",
               }}
               whileHover={{
                 marginLeft: "4px",
@@ -154,6 +158,7 @@ export default function Card({
                 textDecoration: "underline",
                 lineHeight: "1rem",
                 transform: "translateY(-1.5px)",
+                color: "#303030ff",
               }}
               whileHover={{
                 marginLeft: "4px",

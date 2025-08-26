@@ -71,7 +71,8 @@ export default function ProjectSection() {
               fontSize: "3rem",
               fontWeight: 900,
               lineHeight: .9,
-              marginBottom: "10px"
+              marginBottom: "10px",
+              color: "#303030ff"
             }}
           >
             Writing code to make your life easier.
@@ -80,6 +81,7 @@ export default function ProjectSection() {
             style={{
               fontSize: "1.5rem",
               fontWeight: 400,
+              color: "#444444ff"
             }}
           >
             Tedious tasks are a thing of the past. I create tools that help you
