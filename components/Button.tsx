@@ -12,16 +12,16 @@ export default function Button({ title, url }: ButtonProps) {
 
   const buttonStyle: React.CSSProperties = {
     display: "flex",
-    width: width > 1000 ? 250 : 150,
-    height: width > 1000 ? 57 : 40,
+    width: width > 1000 ? 250 : 120,
+    height: width > 1000 ? 57 : 35,
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "white",
     border: "none",
-    fontSize: width > 1000 ? 20 : 16,
+    fontSize: width > 1000 ? 20 : 12,
     fontWeight: "bold",
     cursor: "pointer",
-    borderRadius: width > 1000 ? 16 : 12
+    borderRadius: width > 1000 ? 16 : 8
   };
 
   const spanStyle: React.CSSProperties = {

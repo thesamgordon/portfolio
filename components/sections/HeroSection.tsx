@@ -93,9 +93,9 @@ export default function HeroSection() {
       ? "10rem"
       : width > 875
       ? "8rem"
-      : "4rem";
+      : "3.5rem";
 
-  const footerFontSize = width > 1300 ? "8rem" : width > 1050 ? "5rem" : "3rem";
+  const footerFontSize = width > 1300 ? "8rem" : width > 1050 ? "5rem" : "2.5rem";
 
   const subtitleStyle = {
     fontSize:
@@ -118,7 +118,7 @@ export default function HeroSection() {
     margin: 0,
     lineHeight: 1.1,
     fontWeight: 700,
-    marginTop: width > 1300 ? "1rem" : width > 1050 ? "0rem" : "0",
+    marginTop: width > 1300 ? "1rem" : width > 1050 ? "1rem" : "1.2rem",
     transform: "translate3d(0, 0, 0)",
   };
 
@@ -148,7 +148,11 @@ export default function HeroSection() {
     transform: "translate3d(0, 0, 0)",
   };
 
-  const title = "Sam Gordon".split("");
+  const title = useMemo(
+    () => 'Sam Gordon'.split(" ").map((w) => w.split("")),
+    []
+  );
+
   const subtitle = useMemo(
     () => 'Programming in the spotlight.'.split(" ").map((w) => w.split("")),
     []
@@ -194,7 +198,7 @@ export default function HeroSection() {
           style={{
             display: "flex",
             flexDirection: "row",
-            gap: width > 1300 ? "5rem" : width > 1050 ? "5rem" : "3rem",
+            gap: width > 1300 ? "5rem" : width > 1050 ? "5rem" : "1rem",
             width: "100%",
             height: "100%",
           }}
@@ -220,11 +224,11 @@ export default function HeroSection() {
                 margin: 0,
                 lineHeight: 0.7,
                 letterSpacing: "-0.1rem",
-                whiteSpace: "nowrap",
+                whiteSpace: width > 1300 ? "nowrap" : "break-spaces",
               }}
             >
               {title.map((letter, i) => (
-                <AnimatedLetter key={i} letter={letter} delay={i * 0.05} />
+                <AnimatedWord key={i} word={letter} baseDelay={i * 0.05} />
               ))}
             </h1>
             <div>
@@ -273,7 +277,7 @@ export default function HeroSection() {
               display: "flex",
               flexDirection: "row",
               justifyContent: "end",
-              gap: width > 1300 ? "7rem" : width > 1050 ? "5rem" : "3rem",
+              gap: width > 1300 ? "7rem" : width > 1050 ? "5rem" : "1rem",
               alignItems: "end",
               width: "100%",
               height: "100%",

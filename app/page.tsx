@@ -13,9 +13,11 @@ import {
   useTransform,
 } from "motion/react";
 import { useRef } from "react";
+import useWindowDimensions from "./hooks/useWindowDimensions";
 
 export default function HomePage() {
   const { scrollY } = useScroll();
+  const { width: windowWidth } = useWindowDimensions();
 
   const blur = useTransform(scrollY, [0, 1000], [0, 100], {
     ease: easeInOut,
@@ -88,7 +90,7 @@ export default function HomePage() {
         <motion.div
           style={{
             backgroundColor: "white",
-            height: "20vh",
+            height: windowWidth > 1000 ? "20vh" : windowWidth > 875 ? "15vh" : "10vh",
             width: widthTemplate,
             borderTopRightRadius: "200px",
             borderBottomRightRadius: "200px",
@@ -100,14 +102,14 @@ export default function HomePage() {
           style={{
             fontWeight: 900,
             textAlign: "right",
-            fontSize: "10vh",
+            fontSize: windowWidth > 1300 ? "10vh" : windowWidth > 1050 ? "8vh" : windowWidth > 875 ? "6vh" : "3vh",
             margin: 0,
             lineHeight: .67,
             position: "absolute",
             bottom: 0,
             right: 0,
             color: "white",
-            letterSpacing: "-0.03em"
+            letterSpacing: "-0.03em",
           }}
         >
           Sam Gordon

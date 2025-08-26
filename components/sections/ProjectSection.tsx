@@ -8,10 +8,12 @@ import {
 } from "motion/react";
 import Card from "../Card";
 import { useRef } from "react";
-import QLabImage from "@/lib/images/qlab.png"
+import QLabImage from "@/lib/images/qlab.png";
+import useWindowDimensions from "@/app/hooks/useWindowDimensions";
 
 export default function ProjectSection() {
   const ref = useRef<HTMLDivElement>(null);
+  const { width } = useWindowDimensions();
 
   const { scrollY } = useScroll({
     target: ref,
@@ -24,15 +26,15 @@ export default function ProjectSection() {
 
   const offsetRight = useTransform(scrollY, [0, 1200], [0, 80], {
     ease: cubicBezier(0.4, 0.0, 0.15, 1),
-    clamp: false
+    clamp: false,
   });
   const offsetLeft = useTransform(scrollY, [0, 1200], [0, -50], {
     ease: cubicBezier(0.4, 0.0, 0.15, 1),
-    clamp: false
+    clamp: false,
   });
   const offsetLeftSmall = useTransform(scrollY, [0, 1200], [0, 40], {
     ease: cubicBezier(0.4, 0.0, 0.15, 1),
-    clamp: false
+    clamp: false,
   });
 
   const gapTemplate: MotionValue<string> = useMotionTemplate`${gap}rem`;
@@ -43,7 +45,7 @@ export default function ProjectSection() {
   return (
     <section
       style={{
-        height: "100vh",
+        height: width > 1300 ? "100vh" : width > 1050 ? "120vh" : "150vh",
         backgroundColor: "white",
         zIndex: 0,
         position: "relative",
@@ -55,7 +57,7 @@ export default function ProjectSection() {
       <div
         style={{
           display: "flex",
-          flexDirection: "row",
+          flexDirection: width > 1300 ? "row" : "column",
           justifyContent: "space-between",
           alignItems: "center",
           gap: "1rem",
@@ -63,16 +65,16 @@ export default function ProjectSection() {
       >
         <div
           style={{
-            width: "50%",
+            width: width > 1300 ? "50%" : "100%",
           }}
         >
           <h1
             style={{
               fontSize: "3rem",
               fontWeight: 900,
-              lineHeight: .9,
+              lineHeight: 0.9,
               marginBottom: "10px",
-              color: "#303030ff"
+              color: "#303030ff",
             }}
           >
             Writing code to make your life easier.
@@ -81,7 +83,7 @@ export default function ProjectSection() {
             style={{
               fontSize: "1.5rem",
               fontWeight: 400,
-              color: "#444444ff"
+              color: "#444444ff",
             }}
           >
             Tedious tasks are a thing of the past. I create tools that help you
@@ -109,7 +111,7 @@ export default function ProjectSection() {
             <motion.div
               style={{
                 marginBottom: gapTemplate,
-                transform: offsetRightTemplate
+                transform: width > 1000 ? offsetRightTemplate : "none",
               }}
             >
               <Card
@@ -125,7 +127,7 @@ export default function ProjectSection() {
             <motion.div
               style={{
                 marginBottom: gapTemplate,
-                transform: offsetLeftTemplate
+                transform: width > 1000 ? offsetLeftTemplate : "none",
               }}
             >
               <Card
@@ -141,7 +143,7 @@ export default function ProjectSection() {
             <motion.div
               style={{
                 marginBottom: gapTemplate,
-                transform: offsetLeftSmallTemplate,
+                transform: width > 1000 ? offsetLeftSmallTemplate : "none",
               }}
             >
               <Card

@@ -1,5 +1,6 @@
 import Image, { StaticImageData } from "next/image";
 import { motion } from "motion/react";
+import useWindowDimensions from "@/app/hooks/useWindowDimensions";
 
 export default function Card({
   title,
@@ -20,11 +21,13 @@ export default function Card({
   link?: string;
   contact?: boolean;
 }) {
+  const { width } = useWindowDimensions();
+
   return (
     <div
       style={{
         border: "3px solid #eee",
-        width: "500px",
+        width: width > 1000 ? 500 : 300,
         borderRadius: "30px",
         overflow: "hidden",
         transform: `rotate(${rotation}deg)`,
