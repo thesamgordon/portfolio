@@ -73,7 +73,7 @@ export default function HomePage() {
       <motion.div
         ref={secondRef}
         style={{
-          marginTop: useTransform(scrollY, [0, 900], [200, -400], {
+          marginTop: useTransform(scrollY, [0, 900], [300, -400], {
             ease: cubicBezier(1, 0.8, 0.5, 1),
           }),
         }}
