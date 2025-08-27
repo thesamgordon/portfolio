@@ -42,7 +42,7 @@ export default function HeroSection() {
     margin: 0,
     lineHeight: 1.1,
     fontWeight: 700,
-    marginTop: width > 1300 ? "1.1rem" : width > 1050 ? "1.1rem" : "1.2rem",
+    marginTop: width > 1300 ? "1.1rem" : width > 1050 ? "1.1rem" : ".5rem",
   };
 
   const descriptionStyle = {
@@ -67,7 +67,7 @@ export default function HeroSection() {
     lineHeight: 1.1,
     fontWeight: 300,
     marginTop: "0rem",
-    marginBottom: "1.5rem",
+    marginBottom: width > 1300 ? "1.5rem" : width > 1050 ? "1.5rem" : ".8rem",
   };
 
   const links: Record<string, string> = {
