@@ -104,7 +104,7 @@ export default function Card({
               </g>
             </svg>
             <motion.a
-              href={"mailto:contact@loudbook.dev"}
+              href={"mailto:contact@thesamgordon.com"}
               style={{
                 fontSize: "1rem",
                 fontWeight: 400,

@@ -71,7 +71,7 @@ export default function HeroSection() {
   };
 
   const links: Record<string, string> = {
-    "mailto:contact@loudbook.dev": "Contact",
+    "mailto:contact@thesamgordon.com": "Contact",
   };
 
   useEffect(() => {

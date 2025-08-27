@@ -37,7 +37,7 @@ const overusedGroteske = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Loudbook",
+  title: "Sam Gordon",
 };
 
 export default function RootLayout({
