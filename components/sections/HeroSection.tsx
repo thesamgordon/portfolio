@@ -38,7 +38,7 @@ export default function HeroSection() {
         : width > 875
         ? "35rem"
         : "100%",
-    color: "#0000",
+    color: "white",
     margin: 0,
     lineHeight: 1.1,
     fontWeight: 700,
