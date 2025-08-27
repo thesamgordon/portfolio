@@ -86,7 +86,7 @@ export default function HeroSection() {
       animate={{ filter: "blur(0px)", transform: "translateY(0px)", opacity: 1 }}
       transition={{
         duration: .7,
-        delay: .3,
+        delay: 0.3,
         ease: [.75, 0, 0.25, 1],
       }}
     >
@@ -137,8 +137,8 @@ export default function HeroSection() {
               <p style={subtitleStyle}>Programming in the spotlight.</p>
               <p style={descriptionStyle}>
                 An avid theater enthusiast and a passionate developer. I work to
-                create technology that enhances both the performing arts and the
-                developer experience.
+                create technology that enhances both the performing arts and programs
+                alike.
               </p>
             </div>
 

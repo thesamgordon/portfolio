@@ -48,7 +48,7 @@ export default function Background({ loadCallback }: BackgroundProps) {
             display: "block",
             pointerEvents: "none",
             transform: "scale(1.3)",
-            transition: "opacity .3s ease",
+            transition: "opacity 0.3s ease",
             zIndex: -2,
           }}
         />
