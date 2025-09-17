@@ -169,7 +169,8 @@ export default function HeroSection() {
                       width: "100%",
                       justifyContent: "center",
                     }}
-                    whileTap={{ transform: "translateY(2px)" }}
+                    whileHover={{ transform: "translateY(-1px)" }}
+                    whileTap={{ transform: "translateY(0px)" }}
                   >
                     <svg
                       width="16px"

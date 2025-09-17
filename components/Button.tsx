@@ -39,21 +39,22 @@ export default function Button({
   };
 
   const [isDropcomponentShown, setIsDropcomponentShown] = useState(false);
+  const [isButtonHovered, setIsButtonHovered] = useState(false);
 
   return (
     <motion.div
       onHoverStart={() => {
         setIsDropcomponentShown(true);
+        setIsButtonHovered(true);
       }}
-      onHoverEnd={() => setIsDropcomponentShown(false)}
+      onHoverEnd={() => {
+        setIsDropcomponentShown(false);
+        setIsButtonHovered(false);
+      }}
     >
       <motion.button
-        style={buttonStyle}
+        style={{ ...buttonStyle, boxShadow: isButtonHovered ? "0 0 30px rgba(30, 18, 18, 0.3)" : "none", transform: isButtonHovered ? "translateY(-2px)" : "none", transition: "box-shadow 0.3s, transform 0.3s" }}
         onClick={handleClick}
-        whileHover={{
-          boxShadow: "0 0 30px rgba(30, 18, 18, 0.3)",
-          transform: "translateY(-2px)",
-        }}
         whileTap={{
           scale: 0.95,
           boxShadow: "0 0 30px rgba(30, 18, 18, 0.5)",
@@ -67,7 +68,7 @@ export default function Button({
         exit={{ opacity: 1, y: -10 }}
         animate={{
           opacity: isDropcomponentShown ? 1 : 0,
-          y: isDropcomponentShown ? 0 : -20,
+          y: isDropcomponentShown ? 0 : -27,
         }}
         transition={{ duration: 0.25 }}
         style={{
