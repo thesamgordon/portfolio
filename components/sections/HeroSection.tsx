@@ -72,6 +72,7 @@ export default function HeroSection() {
 
   const links: Record<string, string> = {
     "mailto:contact@thesamgordon.com": "Contact",
+    "https://github.com/Loudbooks": "GitHub",
   };
 
   useEffect(() => {

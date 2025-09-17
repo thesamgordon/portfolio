@@ -49,7 +49,8 @@ export default function ProjectSection() {
         backgroundColor: "white",
         zIndex: 0,
         position: "relative",
-        padding: "4rem",
+        paddingLeft: width > 1000 ? "8rem" : "2rem",
+        paddingRight: width > 1000 ? "8rem" : "2rem",
         paddingTop: "12rem",
         paddingBottom: width > 1300 ? "4rem" : "8rem",
       }}
@@ -71,7 +72,7 @@ export default function ProjectSection() {
         >
           <h1
             style={{
-              fontSize: "3rem",
+              fontSize: width > 1000 ? "3.5rem" : "2.5rem",
               fontWeight: 900,
               lineHeight: 0.9,
               marginBottom: "10px",
@@ -82,7 +83,7 @@ export default function ProjectSection() {
           </h1>
           <p
             style={{
-              fontSize: "1.5rem",
+              fontSize: width > 1000 ? "1.5rem" : "1.25rem",
               fontWeight: 400,
               color: "#444444ff",
             }}
@@ -107,6 +108,8 @@ export default function ProjectSection() {
               width: "100%",
               alignItems: "center",
               justifyContent: "center",
+              paddingBottom: width > 1300 ? "0" : "2rem",
+              paddingTop: width > 1300 ? "0" : "2rem",
             }}
           >
             <motion.div
