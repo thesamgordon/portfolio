@@ -127,8 +127,8 @@ export default function HomePage() {
                     : "0.75rem",
                 margin: 0,
                 display: "block",
-                paddingRight: "2rem",
-                lineHeight: 1,
+                textAlign: "right",
+                lineHeight: 1.5,
               }}
             >
               {windowWidth < 600
