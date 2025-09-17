@@ -126,10 +126,9 @@ export default function HomePage() {
                     ? "0.875rem"
                     : "0.75rem",
                 margin: 0,
-                textAlign: "center",
-                display: "inline-block",
+                display: "block",
                 paddingRight: "2rem",
-                lineHeight: .7,
+                lineHeight: 1,
               }}
             >
               {windowWidth < 600

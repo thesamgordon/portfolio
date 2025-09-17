@@ -4,6 +4,8 @@ import React, { useEffect, useMemo, useState } from "react";
 import Button from "@/components/Button";
 import useWindowDimensions from "@/app/hooks/useWindowDimensions";
 import { motion } from "motion/react";
+import openLink from "@/lib/images/open-tab.svg";
+import Image from "next/image";
 
 export default function HeroSection() {
   const { width } = useWindowDimensions();
@@ -70,11 +72,6 @@ export default function HeroSection() {
     marginBottom: width > 1300 ? "1.5rem" : width > 1050 ? "1.5rem" : ".8rem",
   };
 
-  const links: Record<string, string> = {
-    "mailto:contact@thesamgordon.com": "Contact",
-    "https://github.com/Loudbooks": "GitHub",
-  };
-
   useEffect(() => {
     setHydrated(true);
   }, []);
@@ -83,12 +80,20 @@ export default function HeroSection() {
 
   return (
     <motion.section
-      initial={{ filter: "blur(5px)", transform: "translateY(40px)", opacity: 0 }}
-      animate={{ filter: "blur(0px)", transform: "translateY(0px)", opacity: 1 }}
+      initial={{
+        filter: "blur(5px)",
+        transform: "translateY(40px)",
+        opacity: 0,
+      }}
+      animate={{
+        filter: "blur(0px)",
+        transform: "translateY(0px)",
+        opacity: 1,
+      }}
       transition={{
-        duration: .7,
+        duration: 0.7,
         delay: 0.3,
-        ease: [.75, 0, 0.25, 1],
+        ease: [0.75, 0, 0.25, 1],
       }}
     >
       <div
@@ -138,8 +143,8 @@ export default function HeroSection() {
               <p style={subtitleStyle}>Programming in the spotlight.</p>
               <p style={descriptionStyle}>
                 An avid theater enthusiast and a passionate developer. I work to
-                create technology that enhances both the performing arts and programs
-                alike.
+                create technology that enhances both the performing arts and
+                programs alike.
               </p>
             </div>
 
@@ -151,9 +156,39 @@ export default function HeroSection() {
                 width: "max-content",
               }}
             >
-              {Object.entries(links).map(([url, title]) => (
-                <Button key={url} title={title} url={url} />
-              ))}
+              <Button title="Contact" url="mailto:sam@thesamgordon.com" />
+              <Button
+                title="GitHub"
+                url="https://github.com/Loudbooks"
+                dropComponent={
+                  <motion.div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "0.5rem",
+                      width: "100%",
+                      justifyContent: "center",
+                    }}
+                    whileTap={{ transform: "translateY(2px)" }}
+                  >
+                    <Image src={openLink} alt="GitHub" width={12} />
+                    <motion.a
+                      href="https://github.com/Loudbooks/portfolio"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        fontSize: width > 1000 ? 14 : 8,
+                        color: "white",
+                        margin: 0,
+                        textDecoration: "underline",
+                        fontWeight: "400",
+                      }}
+                    >
+                      View this website on GitHub
+                    </motion.a>
+                  </motion.div>
+                }
+              />
             </div>
           </div>
 
