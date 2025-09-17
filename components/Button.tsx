@@ -67,9 +67,9 @@ export default function Button({
         exit={{ opacity: 1, y: -10 }}
         animate={{
           opacity: isDropcomponentShown ? 1 : 0,
-          y: isDropcomponentShown ? 0 : -30,
+          y: isDropcomponentShown ? 0 : -20,
         }}
-        transition={{ duration: 0.3 }}
+        transition={{ duration: 0.25 }}
         style={{
           position: "absolute",
           paddingTop: 5,
