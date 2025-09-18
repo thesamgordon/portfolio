@@ -40,6 +40,7 @@ export default function Button({
 
   const [isDropcomponentShown, setIsDropcomponentShown] = useState(false);
   const [isButtonHovered, setIsButtonHovered] = useState(false);
+  const [isButtonClicked, setIsButtonClicked] = useState(false);
 
   return (
     <motion.div
@@ -53,13 +54,11 @@ export default function Button({
       }}
     >
       <motion.button
-        style={{ ...buttonStyle, boxShadow: isButtonHovered ? "0 0 30px rgba(30, 18, 18, 0.3)" : "none", transform: isButtonHovered ? "translateY(-2px)" : "none", transition: "box-shadow 0.3s, transform 0.3s" }}
+        style={{ ...buttonStyle, boxShadow: isButtonClicked ? "0 0 30px rgba(30, 18, 18, 0.4)" : isButtonHovered ? "0 0 30px rgba(30, 18, 18, 0.3)" : "none", transform: isButtonClicked ? "translateY(.5px)" : isButtonHovered ? "translateY(-2px)" : "none", transition: "box-shadow 0.3s, transform 0.3s" }}
         onClick={handleClick}
-        whileTap={{
-          scale: 0.95,
-          boxShadow: "0 0 30px rgba(30, 18, 18, 0.5)",
-          transform: "translateY(2px)",
-        }}
+        onMouseDown={() => setIsButtonClicked(true)}
+        onMouseUp={() => setIsButtonClicked(false)}
+        onMouseLeave={() => setIsButtonClicked(false)}
       >
         <span style={spanStyle}>{title}</span>
       </motion.button>
