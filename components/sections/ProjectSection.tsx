@@ -20,8 +20,8 @@ export default function ProjectSection() {
     offset: ["start end", "start start"],
   });
 
-  const gap = useTransform(scrollY, [0, 800], [-10, 0], {
-    ease: cubicBezier(0.4, 0.0, 0.15, 1),
+  const gap = useTransform(scrollY, [0, 800], [-5, 0], {
+    ease: cubicBezier(0.9, 0, 0.42, 1),
   });
 
   const offsetRight = useTransform(scrollY, [0, 1200], [0, 80], {
