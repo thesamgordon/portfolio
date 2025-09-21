@@ -111,6 +111,7 @@ export default function HomePage() {
             justifyContent: "end",
             alignItems: "end",
             gap: ".2rem",
+            padding: windowWidth > 1000 ? "1rem" : ".5rem",
           }}
         >
           <div>
