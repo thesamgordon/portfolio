@@ -45,14 +45,14 @@ export default function ProjectSection() {
   return (
     <section
       style={{
-        height: width > 1300 ? "100vh" : width > 1050 ? "120vh" : "100%",
+        height: "100%",
         backgroundColor: "white",
         zIndex: 0,
         position: "relative",
         paddingLeft: width > 1000 ? "8rem" : "2rem",
         paddingRight: width > 1000 ? "8rem" : "2rem",
         paddingTop: "12rem",
-        paddingBottom: width > 1300 ? "4rem" : "8rem",
+        paddingBottom: width > 1300 ? "20rem" : "8rem",
       }}
       ref={ref}
     >

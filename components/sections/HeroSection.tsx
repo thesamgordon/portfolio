@@ -4,8 +4,6 @@ import React, { useEffect, useMemo, useState } from "react";
 import Button from "@/components/Button";
 import useWindowDimensions from "@/app/hooks/useWindowDimensions";
 import { motion } from "motion/react";
-import openLink from "@/lib/images/open-tab.svg";
-import Image from "next/image";
 
 export default function HeroSection() {
   const { width } = useWindowDimensions();
