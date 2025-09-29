@@ -27,6 +27,7 @@ export default function Button({
     fontWeight: "bold",
     cursor: "pointer",
     borderRadius: width > 1000 ? 16 : 8,
+    fontFamily: "var(--font-overused-groteske)",
   };
 
   const spanStyle: React.CSSProperties = {
