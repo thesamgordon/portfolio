@@ -49,10 +49,10 @@ export default function ProjectSection() {
         backgroundColor: "white",
         zIndex: 0,
         position: "relative",
-        paddingLeft: width > 1000 ? "8rem" : "2rem",
-        paddingRight: width > 1000 ? "8rem" : "2rem",
+        paddingLeft: width > 1000 ? "6rem" : "2rem",
+        paddingRight: width > 1000 ? "6rem" : "2rem",
         paddingTop: "12rem",
-        paddingBottom: width > 1300 ? "20rem" : "8rem",
+        paddingBottom: width > 1450 ? "20rem" : "8rem",
       }}
       ref={ref}
     >
@@ -62,7 +62,7 @@ export default function ProjectSection() {
           flexDirection: width > 1300 ? "row" : "column",
           justifyContent: "space-between",
           alignItems: "center",
-          gap: "1rem",
+          gap: "5rem",
         }}
       >
         <div
@@ -89,7 +89,7 @@ export default function ProjectSection() {
             }}
           >
             Tedious tasks are a thing of the past. I create tools that help you
-            automate your workflow and improve your productivity, whether it be
+            automate your workflow and improve your productivity, whether
             you&apos;re building an app or writing cues in a theater.
           </p>
         </div>

@@ -10,20 +10,20 @@ export default function HeroSection() {
   const [hydrated, setHydrated] = useState(false);
 
   const titleFontSize =
-    width > 1300
+    width > 1450
       ? "12rem"
       : width > 1050
-      ? "10rem"
+      ? "8rem"
       : width > 875
       ? "8rem"
       : "3.5rem";
 
   const footerFontSize =
-    width > 1300 ? "8rem" : width > 1050 ? "5rem" : "2.5rem";
+    width > 1450 ? "8rem" : width > 1050 ? "5rem" : "2.5rem";
 
   const subtitleStyle = {
     fontSize:
-      width > 1300
+      width > 1450
         ? "2rem"
         : width > 1050
         ? "1.5rem"
@@ -31,7 +31,7 @@ export default function HeroSection() {
         ? "1.4rem"
         : ".8rem",
     width:
-      width > 1300
+      width > 1450
         ? "55rem"
         : width > 1050
         ? "40rem"
@@ -47,7 +47,7 @@ export default function HeroSection() {
 
   const descriptionStyle = {
     fontSize:
-      width > 1300
+      width > 1450
         ? "2rem"
         : width > 1050
         ? "1.5rem"
@@ -55,7 +55,7 @@ export default function HeroSection() {
         ? "1.4rem"
         : "1rem",
     width:
-      width > 1300
+      width > 1450
         ? "55rem"
         : width > 1050
         ? "40rem"
@@ -67,7 +67,7 @@ export default function HeroSection() {
     lineHeight: 1.1,
     fontWeight: 300,
     marginTop: "0rem",
-    marginBottom: width > 1300 ? "1.5rem" : width > 1050 ? "1.5rem" : ".8rem",
+    marginBottom: width > 1450 ? "1.5rem" : width > 1050 ? "1.5rem" : ".8rem",
   };
 
   useEffect(() => {
@@ -97,14 +97,14 @@ export default function HeroSection() {
       <div
         style={{
           height: `calc(100dvh - ${
-            width > 1300 ? "14rem" : width > 1050 ? "10rem" : "6rem"
+            width > 1450 ? "14rem" : width > 1050 ? "10rem" : "6rem"
           })`,
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "space-between",
-          margin: width > 1300 ? "7rem" : width > 1050 ? "5rem" : "3rem",
-          gap: width > 1300 ? "5rem" : width > 1050 ? "5rem" : "4rem",
+          margin: width > 1450 ? "7rem" : width > 1050 ? "5rem" : "3rem",
+          gap: width > 1450 ? "5rem" : width > 1050 ? "5rem" : "4rem",
           position: "relative",
         }}
       >
@@ -112,7 +112,7 @@ export default function HeroSection() {
           style={{
             display: "flex",
             flexDirection: "row",
-            gap: width > 1300 ? "5rem" : width > 1050 ? "5rem" : "1rem",
+            gap: width > 1450 ? "5rem" : width > 1050 ? "5rem" : "1rem",
             width: "100%",
             height: "100%",
           }}
@@ -121,7 +121,7 @@ export default function HeroSection() {
             style={{
               display: "flex",
               flexDirection: "column",
-              gap: width > 1300 ? "10px" : width > 1050 ? ".5rem" : ".25rem",
+              gap: width > 1450 ? "10px" : width > 1050 ? ".5rem" : ".25rem",
             }}
           >
             <h1
@@ -132,7 +132,7 @@ export default function HeroSection() {
                 margin: 0,
                 lineHeight: 0.7,
                 letterSpacing: "-0.1rem",
-                whiteSpace: width > 1300 ? "nowrap" : "break-spaces",
+                whiteSpace: width > 1050 ? "nowrap" : "break-spaces",
               }}
             >
               Sam Gordon
@@ -140,9 +140,7 @@ export default function HeroSection() {
             <div>
               <p style={subtitleStyle}>Programming in the spotlight.</p>
               <p style={descriptionStyle}>
-                An avid theater enthusiast and a passionate developer. I work to
-                create technology that enhances both the performing arts and
-                programs alike.
+                As a theater enthusiast and a passionate developer, I work to create technology that enhances the performing arts and everyday life.
               </p>
             </div>
 
@@ -150,7 +148,7 @@ export default function HeroSection() {
               style={{
                 display: "flex",
                 flexDirection: "row",
-                gap: width > 1300 ? "3rem" : width > 1050 ? "2rem" : "1.5rem",
+                gap: width > 1450 ? "3rem" : width > 1050 ? "2rem" : "1.5rem",
                 width: "max-content",
               }}
             >
@@ -223,7 +221,7 @@ export default function HeroSection() {
             display: "flex",
             flexDirection: "column",
             justifyContent: "end",
-            gap: width > 1300 ? "4rem" : width > 1050 ? "3rem" : "2rem",
+            gap: width > 1450 ? "4rem" : width > 1050 ? "3rem" : "2rem",
             width: "100%",
             height: "100%",
           }}
@@ -233,7 +231,7 @@ export default function HeroSection() {
               display: "flex",
               flexDirection: "row",
               justifyContent: "end",
-              gap: width > 1300 ? "7rem" : width > 1050 ? "5rem" : "1rem",
+              gap: width > 1450 ? "7rem" : width > 1050 ? "5rem" : "1rem",
               alignItems: "end",
               width: "100%",
               height: "100%",
@@ -251,7 +249,7 @@ export default function HeroSection() {
               style={{
                 display: "flex",
                 flexDirection: "column",
-                gap: width > 1300 ? "3rem" : width > 1050 ? "1.5rem" : "1rem",
+                gap: width > 1450 ? "3rem" : width > 1050 ? "1.5rem" : "1rem",
               }}
             >
               <h1
