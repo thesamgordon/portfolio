@@ -38,6 +38,7 @@ const overusedGroteske = localFont({
 
 export const metadata: Metadata = {
   title: "Sam Gordon",
+  description: "A theater enthusiast and a passionate developer, working to create technology that enhances the performing arts and everyday life.",
 };
 
 export default function RootLayout({
