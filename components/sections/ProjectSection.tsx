@@ -157,7 +157,7 @@ export default function ProjectSection() {
                 rotation={-1}
                 zIndex={2}
                 image={QLabImage}
-                link="https://github.com/Loudbooks/ReportBook"
+                link="https://github.com/thesamgordon/ReportBook"
               />
             </motion.div>
           </motion.div>

@@ -155,7 +155,7 @@ export default function HeroSection() {
               <Button title="Contact" url="mailto:sam@thesamgordon.com" />
               <Button
                 title="GitHub"
-                url="https://github.com/Loudbooks"
+                url="https://github.com/thesamgordon"
                 dropComponent={
                   <motion.div
                     style={{
@@ -187,7 +187,7 @@ export default function HeroSection() {
                       </g>
                     </svg>
                     <motion.a
-                      href="https://github.com/Loudbooks/portfolio"
+                      href="https://github.com/thesamgordon/portfolio"
                       target="_blank"
                       rel="noopener noreferrer"
                       style={{
