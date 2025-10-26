@@ -20,32 +20,57 @@ export default function ProjectSection() {
     offset: ["start end", "start start"],
   });
 
-  const gap = useTransform(scrollY, [0, 800], [-5, 0], {
-    ease: cubicBezier(0.9, 0, 0.42, 1),
-  });
-
-  const offsetRight = useTransform(scrollY, [0, 1200], [0, 80], {
-    ease: cubicBezier(0.4, 0.0, 0.15, 1),
-    clamp: false,
-  });
-  const offsetLeft = useTransform(scrollY, [0, 1200], [0, -50], {
-    ease: cubicBezier(0.4, 0.0, 0.15, 1),
-    clamp: false,
-  });
-  const offsetLeftSmall = useTransform(scrollY, [0, 1200], [0, 40], {
-    ease: cubicBezier(0.4, 0.0, 0.15, 1),
-    clamp: false,
-  });
-
-  const gapTemplate: MotionValue<string> = useMotionTemplate`${gap}rem`;
-  const offsetRightTemplate: MotionValue<string> = useMotionTemplate`translateX(${offsetRight}px)`;
-  const offsetLeftTemplate: MotionValue<string> = useMotionTemplate`translateX(${offsetLeft}px)`;
-  const offsetLeftSmallTemplate: MotionValue<string> = useMotionTemplate`translateX(${offsetLeftSmall}px)`;
+  const projects = [
+    {
+      title: "Sheet Snip",
+      description:
+        "Convert your microphone mute sheets into QLab MIDI cues with the click of a button.",
+      languages: ["Python"],
+      image: QLabImage,
+      contact: true,
+    },
+    {
+      title: "PasteBook",
+      description:
+        "Drop your text into a quick pastebin for easy sharing with many customizable options.",
+      languages: ["Rust", "Svelte"],
+      image: QLabImage,
+      link: "https://pastebook.dev/about",
+    },
+    {
+      title: "ReportBook",
+      description:
+        "Generate a diagnostic report of your device to assist with troubleshooting.",
+      languages: ["Rust", "Tauri"],
+      image: QLabImage,
+      link: "https://github.com/thesamgordon/ReportBook",
+    },
+    {
+      title: "Ledger",
+      description:
+        "Extremely fast upload and download system, reaching speeds upwards of 2–4× that of Google Drive.",
+      languages: ["Rust"],
+      image: QLabImage,
+      link: "https://github.com/ldg-sh/ledger",
+    },
+    {
+      title: "Portfolio",
+      description:
+        "The very website you're on right now, built with Next.js and TypeScript.",
+      languages: ["Next.js", "React"],
+      image: QLabImage,
+      link: "https://github.com/thesamgordon/portfolio",
+    },
+  ];
 
   return (
     <section
       style={{
         height: "100%",
+        width: "100%",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
         backgroundColor: "white",
         zIndex: 0,
         position: "relative",
@@ -56,112 +81,71 @@ export default function ProjectSection() {
       }}
       ref={ref}
     >
-      <div
-        style={{
-          display: "flex",
-          flexDirection: width > 1000 ? "row" : "column",
-          justifyContent: "space-between",
-          alignItems: "center",
-          gap: width > 1000 ? "5  rem" : "1rem",
-        }}
-      >
-        <div
+      <div>
+        <motion.h1
           style={{
-            width: width > 1300 ? "50%" : "100%",
+            fontSize: width > 1450 ? "4rem" : width > 1050 ? "3rem" : "2rem",
+            fontWeight: 800,
+            margin: 0,
+            lineHeight: 0.9,
+            color: "#2D2D2D",
           }}
+          viewport={{ once: true }}
+          initial={{ opacity: 0, filter: "blur(20px)", y: 40 }}
+          whileInView={{ opacity: 1, filter: "blur(0px)", y: 0 }}
+          transition={{ duration: 0.7 }}
         >
-          <h1
-            style={{
-              fontSize: width > 1000 ? "3.5rem" : "2.5rem",
-              fontWeight: 900,
-              lineHeight: 0.9,
-              marginBottom: "10px",
-              color: "#303030ff",
-            }}
-          >
-            Writing code to make your life easier.
-          </h1>
-          <p
-            style={{
-              fontSize: width > 1000 ? "1.5rem" : "1.25rem",
-              fontWeight: 400,
-              color: "#444444ff",
-            }}
-          >
-            Tedious tasks are a thing of the past. I create tools that help you
-            automate your workflow and improve your productivity, whether
-            you&apos;re building an app or writing cues in a theater.
-          </p>
-        </div>
+          Projects
+        </motion.h1>
 
-        <div
+        <motion.p
           style={{
-            justifySelf: "center",
-            alignSelf: "center",
-            width: "50%",
+            fontSize:
+              width > 1450 ? "1.5rem" : width > 1050 ? "1.2rem" : "1rem",
+            fontWeight: 400,
+            marginBottom: "2rem",
+            color: "#585858",
+          }}
+          viewport={{ once: true }}
+          initial={{ opacity: 0, filter: "blur(20px)", y: 40 }}
+          whileInView={{ opacity: 1, filter: "blur(0px)", y: 0 }}
+          transition={{ duration: 0.7 }}
+        >
+          A few of my favorite projects that I've worked on recently.
+        </motion.p>
+
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          style={{
+            display: "grid",
+            gridTemplateColumns:
+              width > 1000 ? "1fr 1fr" : width > 600 ? "1fr 1fr" : "1fr",
+            gap: width > 1000 ? "1rem" : "0.5rem",
+            marginBottom: "2rem",
+            width: "max-content",
+          }}
+          transition={{
+            staggerChildren: 0.15,
+            delayChildren: 0.2,
           }}
         >
-          <motion.div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              width: "100%",
-              alignItems: "center",
-              justifyContent: "center",
-              paddingBottom: width > 1300 ? "0" : "2rem",
-              paddingTop: width > 1300 ? "0" : "2rem",
-            }}
-          >
+          {projects.map((proj, i) => (
             <motion.div
-              style={{
-                marginBottom: gapTemplate,
-                transform: offsetRightTemplate,
+              key={proj.title}
+              initial={{ opacity: 0, filter: "blur(20px)", y: 40 }}
+              whileInView={{ opacity: 1, filter: "blur(0px)", y: 0 }}
+              viewport={{ once: true }}
+              transition={{
+                duration: 0.7,
+                ease: [0.75, 0, 0.25, 1],
               }}
             >
-              <Card
-                title="Sheet Snip"
-                description="Convert your microphone mute sheets into QLab MIDI cues with the click of a button."
-                lastUpdated="Python"
-                rotation={-3}
-                zIndex={0}
-                image={QLabImage}
-                contact={true}
-              />
+              <Card {...proj} />
             </motion.div>
-            <motion.div
-              style={{
-                marginBottom: gapTemplate,
-                transform: offsetLeftTemplate,
-              }}
-            >
-              <Card
-                title="PasteBook"
-                description="Drop your text into a quick pastebin for easy sharing with many customizable options."
-                lastUpdated="Rust/Svelte"
-                rotation={3}
-                zIndex={1}
-                image={QLabImage}
-                link="https://pastebook.dev/about"
-              />
-            </motion.div>
-            <motion.div
-              style={{
-                marginBottom: gapTemplate,
-                transform: offsetLeftSmallTemplate,
-              }}
-            >
-              <Card
-                title="ReportBook"
-                description="Generate a diagnostic report of your device to assist with troubleshooting."
-                lastUpdated="Rust/Tauri"
-                rotation={-1}
-                zIndex={2}
-                image={QLabImage}
-                link="https://github.com/thesamgordon/ReportBook"
-              />
-            </motion.div>
-          </motion.div>
-        </div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );
