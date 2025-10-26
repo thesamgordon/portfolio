@@ -78,12 +78,11 @@ export default function ProjectSection() {
           flexDirection: "column",
           alignItems: "flex-start",
           maxWidth: 1200,
-          width: "100%",
         }}
       >
         <motion.h1
           style={{
-            fontSize: width > 1450 ? "4rem" : width > 1050 ? "3rem" : "2rem",
+            fontSize: width > 1450 ? "4rem" : width > 1000 ? "3rem" : "2rem",
             fontWeight: 800,
             margin: 0,
             lineHeight: 0.9,
@@ -101,7 +100,7 @@ export default function ProjectSection() {
         <motion.p
           style={{
             fontSize:
-              width > 1450 ? "1.5rem" : width > 1050 ? "1.2rem" : "1rem",
+              width > 1450 ? "1.5rem" : width > 1000 ? "1.2rem" : "1rem",
             fontWeight: 400,
             marginBottom: width > 1000 ? "2rem" : "0.5rem",
             marginLeft: width > 1000 ? 0 : ".5rem",
@@ -122,10 +121,10 @@ export default function ProjectSection() {
           style={{
             display: "grid",
             gridTemplateColumns:
-              width > 1000 ? "1fr 1fr" : width > 600 ? "1fr 1fr" : "1fr",
-            gap: width > 1000 ? "1rem" : "1rem",
+              width > 1200 ? "1fr 1fr" : width > 600 ? "1fr 1fr" : "1fr",
+            gap: width > 1200 ? "1rem" : "1rem",
             marginBottom: "2rem",
-            width: width > 1000 ? "max-content" : "100%",
+            width: width > 1200 ? "max-content" : "100%",
           }}
           transition={{
             staggerChildren: 0.15,

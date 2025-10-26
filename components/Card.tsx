@@ -23,7 +23,7 @@ export default function Card({
     <div
       style={{
         border: "1px solid #DDDDDD",
-        width: width > 1000 ? 500 : "100%",
+        width: width > 1200 ? 500 : "100%",
         borderRadius: width > 1000 ? "1rem" : ".75rem",
         overflow: "hidden",
         position: "relative",
