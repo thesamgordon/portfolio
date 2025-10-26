@@ -23,12 +23,12 @@ export default function Card({
     <div
       style={{
         border: "1px solid #DDDDDD",
-        width: width > 1300 ? 500 : 350,
+        width: width > 1000 ? 500 : "100%",
         borderRadius: width > 1000 ? "1rem" : ".75rem",
         overflow: "hidden",
         position: "relative",
         backgroundColor: "#FBFBFB",
-        padding: "1.4rem",
+        padding: width > 1000 ? "1.5rem" : "1rem",
         display: "flex",
         flexDirection: "column",
         gap: ".8rem",
@@ -43,7 +43,7 @@ export default function Card({
       >
         <h1
           style={{
-            fontSize: width > 1300 ? "1.6rem" : "1rem",
+            fontSize: width > 1000 ? "1.6rem" : "1.4rem",
             fontWeight: 700,
             margin: 0,
             color: "#2D2D2D",
@@ -64,19 +64,19 @@ export default function Card({
             <div
               key={index}
               style={{
-                padding: width > 1300 ? "0.25rem 0.5rem" : "0.2rem 0.4rem",
-                borderRadius: "0.3rem",
+                padding: width > 1000 ? "0.25rem 0.5rem" : "0.2rem 0.4rem",
+                borderRadius: "0.35rem",
                 backgroundColor: "#F1F1F1",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
                 width: "60px",
-                height: "22px",
+                height: width > 1000 ? "22px" : "20px",
               }}
             >
               <span
                 style={{
-                  fontSize: width > 1300 ? ".7rem" : "0.875rem",
+                  fontSize: width > 1000 ? ".7rem" : "0.6rem",
                   fontWeight: 600,
                   color: "#585858",
                   lineHeight: 1,
@@ -90,7 +90,7 @@ export default function Card({
       </div>
       <p
         style={{
-          fontSize: width > 1300 ? "1rem" : "0.875rem",
+          fontSize: width > 1000 ? "1rem" : "0.875rem",
           fontWeight: 400,
           margin: 0,
           color: "#585858",
@@ -126,7 +126,7 @@ export default function Card({
           <motion.a
             href={"mailto:contact@thesamgordon.com"}
             style={{
-              fontSize: "1rem",
+              fontSize: width > 1000 ? "1rem" : "0.875rem",
               fontWeight: 400,
               textDecoration: "underline",
               lineHeight: "1rem",
@@ -174,7 +174,7 @@ export default function Card({
             href={link}
             target="_blank"
             style={{
-              fontSize: "1rem",
+              fontSize: width > 1000 ? "1rem" : "0.875rem",
               fontWeight: 400,
               textDecoration: "underline",
               lineHeight: "1rem",

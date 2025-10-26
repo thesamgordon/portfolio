@@ -1,10 +1,6 @@
 import {
-  cubicBezier,
   motion,
-  MotionValue,
-  useMotionTemplate,
   useScroll,
-  useTransform,
 } from "motion/react";
 import Card from "../Card";
 import { useRef } from "react";
@@ -14,11 +10,6 @@ import useWindowDimensions from "@/app/hooks/useWindowDimensions";
 export default function ProjectSection() {
   const ref = useRef<HTMLDivElement>(null);
   const { width } = useWindowDimensions();
-
-  const { scrollY } = useScroll({
-    target: ref,
-    offset: ["start end", "start start"],
-  });
 
   const projects = [
     {
@@ -74,20 +65,29 @@ export default function ProjectSection() {
         backgroundColor: "white",
         zIndex: 0,
         position: "relative",
-        paddingLeft: width > 1000 ? "6rem" : "2rem",
-        paddingRight: width > 1000 ? "6rem" : "2rem",
+        paddingLeft: width > 1000 ? "6rem" : "1rem",
+        paddingRight: width > 1000 ? "6rem" : "1rem",
         paddingTop: "12rem",
         paddingBottom: width > 1450 ? "20rem" : "8rem",
       }}
       ref={ref}
     >
-      <div>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "flex-start",
+          maxWidth: 1200,
+          width: "100%",
+        }}
+      >
         <motion.h1
           style={{
             fontSize: width > 1450 ? "4rem" : width > 1050 ? "3rem" : "2rem",
             fontWeight: 800,
             margin: 0,
             lineHeight: 0.9,
+            marginLeft: width > 1000 ? 0 : ".5rem",
             color: "#2D2D2D",
           }}
           viewport={{ once: true }}
@@ -103,7 +103,8 @@ export default function ProjectSection() {
             fontSize:
               width > 1450 ? "1.5rem" : width > 1050 ? "1.2rem" : "1rem",
             fontWeight: 400,
-            marginBottom: "2rem",
+            marginBottom: width > 1000 ? "2rem" : "0.5rem",
+            marginLeft: width > 1000 ? 0 : ".5rem",
             color: "#585858",
           }}
           viewport={{ once: true }}
@@ -122,9 +123,9 @@ export default function ProjectSection() {
             display: "grid",
             gridTemplateColumns:
               width > 1000 ? "1fr 1fr" : width > 600 ? "1fr 1fr" : "1fr",
-            gap: width > 1000 ? "1rem" : "0.5rem",
+            gap: width > 1000 ? "1rem" : "1rem",
             marginBottom: "2rem",
-            width: "max-content",
+            width: width > 1000 ? "max-content" : "100%",
           }}
           transition={{
             staggerChildren: 0.15,
