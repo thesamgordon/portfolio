@@ -27,7 +27,7 @@ export default function Card({
     <div
       style={{
         border: "3px solid #eee",
-        width: width > 1000 ? 500 : 350,
+        width: width > 1300 ? 500 : 350,
         borderRadius: width > 1000 ? "1.5rem" : "1.25rem",
         overflow: "hidden",
         transform: `rotate(${rotation}deg)`,

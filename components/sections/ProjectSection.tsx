@@ -59,10 +59,10 @@ export default function ProjectSection() {
       <div
         style={{
           display: "flex",
-          flexDirection: width > 1300 ? "row" : "column",
+          flexDirection: width > 1000 ? "row" : "column",
           justifyContent: "space-between",
           alignItems: "center",
-          gap: "5rem",
+          gap: width > 1000 ? "5  rem" : "1rem",
         }}
       >
         <div
@@ -115,7 +115,7 @@ export default function ProjectSection() {
             <motion.div
               style={{
                 marginBottom: gapTemplate,
-                transform: width > 1000 ? offsetRightTemplate : "none",
+                transform: offsetRightTemplate,
               }}
             >
               <Card
@@ -131,7 +131,7 @@ export default function ProjectSection() {
             <motion.div
               style={{
                 marginBottom: gapTemplate,
-                transform: width > 1000 ? offsetLeftTemplate : "none",
+                transform: offsetLeftTemplate,
               }}
             >
               <Card
@@ -147,7 +147,7 @@ export default function ProjectSection() {
             <motion.div
               style={{
                 marginBottom: gapTemplate,
-                transform: width > 1000 ? offsetLeftSmallTemplate : "none",
+                transform: offsetLeftSmallTemplate,
               }}
             >
               <Card
