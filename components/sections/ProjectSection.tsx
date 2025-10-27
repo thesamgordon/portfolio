@@ -139,7 +139,6 @@ export default function ProjectSection() {
               viewport={{ once: true }}
               transition={{
                 duration: 0.7,
-                ease: [0.75, 0, 0.25, 1],
               }}
             >
               <Card {...proj} />
