@@ -111,7 +111,7 @@ export default function ProjectSection() {
           whileInView={{ opacity: 1, filter: "blur(0px)", y: 0 }}
           transition={{ duration: 0.7 }}
         >
-          A few of my favorite projects that I've worked on recently.
+          A few of my favorite projects that I&apos;ve worked on recently.
         </motion.p>
 
         <motion.div

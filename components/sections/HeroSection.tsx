@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "@/components/Button";
 import useWindowDimensions from "@/app/hooks/useWindowDimensions";
 import { motion } from "motion/react";
