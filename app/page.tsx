@@ -18,6 +18,7 @@ import useWindowDimensions from "./hooks/useWindowDimensions";
 export default function HomePage() {
   const { scrollY } = useScroll();
   const { width: windowWidth } = useWindowDimensions();
+  const year = new Date().getFullYear();
 
   const blur = useTransform(scrollY, [0, 1000], [0, 100], {
     ease: easeInOut,
@@ -133,8 +134,8 @@ export default function HomePage() {
               }}
             >
               {windowWidth < 600
-                ? "© 2025 Sam Gordon"
-                : "© 2025 Sam Gordon. All rights reserved."}
+                ? `© ${year} Sam Gordon`
+                : `© ${year} Sam Gordon. All rights reserved.`}
             </p>
             <h1
               style={{
