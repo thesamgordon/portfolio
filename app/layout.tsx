@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { Inter } from "next/font/google";
 import "./globals.css";
 
 const overusedGroteske = localFont({
@@ -36,6 +37,11 @@ const overusedGroteske = localFont({
   variable: "--font-overused-groteske",
 });
 
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+});
+
 export const metadata: Metadata = {
   title: "Sam Gordon",
   description: "A theater enthusiast and a passionate developer, working to create technology that enhances the performing arts and everyday life.",
@@ -48,7 +54,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${overusedGroteske.className}`}>{children}</body>
+      <body className={`${inter.variable} ${overusedGroteske.className}`}>{children}</body>
     </html>
   );
 }

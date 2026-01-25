@@ -6,6 +6,7 @@ import Card from "../Card";
 import { useRef } from "react";
 import QLabImage from "@/lib/images/qlab.png";
 import useWindowDimensions from "@/app/hooks/useWindowDimensions";
+import Project from "../projects/Project";
 
 export default function ProjectSection() {
   const ref = useRef<HTMLDivElement>(null);
@@ -80,71 +81,7 @@ export default function ProjectSection() {
           maxWidth: 1200,
         }}
       >
-        <motion.h1
-          style={{
-            fontSize: width > 1450 ? "4rem" : width > 1000 ? "3rem" : "2rem",
-            fontWeight: 800,
-            margin: 0,
-            lineHeight: 0.9,
-            marginLeft: width > 1000 ? 0 : ".5rem",
-            color: "#2D2D2D",
-          }}
-          viewport={{ once: true }}
-          initial={{ opacity: 0, filter: "blur(20px)", y: 40 }}
-          whileInView={{ opacity: 1, filter: "blur(0px)", y: 0 }}
-          transition={{ duration: 0.7 }}
-        >
-          Projects
-        </motion.h1>
-
-        <motion.p
-          style={{
-            fontSize:
-              width > 1450 ? "1.5rem" : width > 1000 ? "1.2rem" : "1rem",
-            fontWeight: 400,
-            marginBottom: width > 1000 ? "2rem" : "0.5rem",
-            marginLeft: width > 1000 ? 0 : ".5rem",
-            color: "#585858",
-          }}
-          viewport={{ once: true }}
-          initial={{ opacity: 0, filter: "blur(20px)", y: 40 }}
-          whileInView={{ opacity: 1, filter: "blur(0px)", y: 0 }}
-          transition={{ duration: 0.7 }}
-        >
-          A few of my favorite projects that I&apos;ve worked on recently.
-        </motion.p>
-
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          style={{
-            display: "grid",
-            gridTemplateColumns:
-              width > 1200 ? "1fr 1fr" : width > 600 ? "1fr 1fr" : "1fr",
-            gap: width > 1200 ? "1rem" : "1rem",
-            marginBottom: "2rem",
-            width: width > 1200 ? "max-content" : "100%",
-          }}
-          transition={{
-            staggerChildren: 0.15,
-            delayChildren: 0.2,
-          }}
-        >
-          {projects.map((proj, i) => (
-            <motion.div
-              key={proj.title}
-              initial={{ opacity: 0, filter: "blur(20px)", y: 40 }}
-              whileInView={{ opacity: 1, filter: "blur(0px)", y: 0 }}
-              viewport={{ once: true }}
-              transition={{
-                duration: 0.7,
-              }}
-            >
-              <Card {...proj} />
-            </motion.div>
-          ))}
-        </motion.div>
+        <Project />
       </div>
     </section>
   );

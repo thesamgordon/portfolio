@@ -9,10 +9,12 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "bun": "^1.3.6",
     "motion": "^12.23.26",
     "next": "16.1.1",
     "react": "19.2.3",
-    "react-dom": "19.2.3"
+    "react-dom": "19.2.3",
+    "sass": "^1.97.3"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.3",

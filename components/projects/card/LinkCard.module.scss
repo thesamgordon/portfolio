@@ -1,0 +1,44 @@
+.linkCardTitle {
+    font-size: 1.1rem;
+    font-weight: 900;
+    font-family: var(--font-inter);
+    line-height: .8;
+    margin-bottom: .4rem;
+}
+
+.linkCardContainer {
+    color: white;
+    padding: 1rem;
+    position: relative;
+    width: 230px;
+    height: 230px;
+    overflow: hidden;
+}
+
+.linkCardImage {
+    position: absolute;
+    left: 50%;
+    bottom: -80px;
+    transform: translateX(-50%);
+    user-select: none;
+}
+
+.linkCardDescription {
+    font-size: .9rem;
+    font-family: var(--font-inter);
+}
+
+.linkButtonText {
+    font-size: .8rem;
+    font-family: var(--font-inter);
+    text-decoration: underline;
+    font-weight: 400;
+}
+
+.linkButtonContainer {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    display: flex;
+    gap: 0.3rem;
+}

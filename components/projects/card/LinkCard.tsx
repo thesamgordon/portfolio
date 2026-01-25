@@ -1,0 +1,40 @@
+import Image from "next/image";
+import styles from "./LinkCard.module.scss";
+
+interface LinkCardProps {
+  title: string;
+  description: string;
+  svgName: string;
+  color: string;
+  url: string;
+}
+
+export default function LinkCard({
+  title,
+  description,
+  svgName,
+  color,
+  url,
+}: LinkCardProps) {
+  return (
+    <div
+      className={styles.linkCardContainer}
+      style={{ backgroundColor: color }}
+    >
+      <h1 className={styles.linkCardTitle}>{title}</h1>
+      <p className={styles.linkCardDescription}>{description}</p>
+      <div className={styles.linkCardImage}>
+        <Image
+          src={`/svg/${svgName}.svg`}
+          alt="Link Icon"
+          width={240}
+          height={240}
+        />
+      </div>
+      <div className={styles.linkButtonContainer}>
+        <h1 className={styles.linkButtonText}>VISIT SITE</h1>
+        <Image src={`/svg/link.svg`} alt="Arrow Icon" width={18} height={18} />
+      </div>
+    </div>
+  );
+}
