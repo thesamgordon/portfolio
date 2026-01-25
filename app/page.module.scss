@@ -1,0 +1,72 @@
+.main {
+  position: relative;
+  // Ensure no overflow hidden
+  overflow: visible;
+}
+
+.spacer {
+  background-color: transparent;
+  height: 100dvh;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.heroFixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.projectWrapper {
+  position: relative;
+  z-index: 2;
+  background-color: transparent;
+}
+
+.footerContainer {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  z-index: 2;
+}
+
+.footerShape {
+  background-color: white;
+  border-top-right-radius: 200px;
+  border-bottom-right-radius: 200px;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.footerTextWrapper {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  gap: .2rem;
+}
+
+.copyright {
+  color: white;
+  margin: 0;
+  display: block;
+  text-align: right;
+  line-height: 1.5;
+}
+
+.footerName {
+  font-weight: 900;
+  text-align: right;
+  margin: 0;
+  line-height: 0.67;
+  color: white;
+  letter-spacing: -0.03em;
+}
