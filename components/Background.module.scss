@@ -1,0 +1,47 @@
+.backgroundWrapper {
+  overflow: hidden;
+  position: fixed;
+  width: 100vw;
+  height: 110vh;
+  top: 0;
+  left: 0;
+  z-index: -2;
+  filter: brightness(1) saturate(1.1);
+}
+
+.bgImage {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  display: block;
+  pointer-events: none;
+  transform: scale(1.3);
+  transition: opacity 0.3s ease;
+  z-index: -2;
+}
+
+.filterContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.4;
+  mix-blend-mode: overlay;
+  z-index: -1;
+}
+
+.grainLayer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/background-grain.webp');
+  background-repeat: repeat;
+  background-size: 200px;
+  z-index: -1;
+  transition: opacity 0.3s ease;
+}

@@ -1,0 +1,24 @@
+.wrapper {
+  position: relative;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  font-family: var(--font-overused-groteske);
+}
+
+.text {
+  color: #9a0100;
+  font-weight: bold;
+}
+
+.dropContainer {
+  position: absolute;
+  padding-top: 5px;
+}

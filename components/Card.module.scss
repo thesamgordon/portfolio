@@ -1,0 +1,65 @@
+.card {
+  border: 1px solid #DDDDDD;
+  overflow: hidden;
+  position: relative;
+  background-color: #FBFBFB;
+  display: flex;
+  flex-direction: column;
+  gap: .8rem;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.title {
+  font-weight: 700;
+  margin: 0;
+  color: #2D2D2D;
+  line-height: 0.8;
+}
+
+.languages {
+  display: flex;
+  flex-direction: row;
+  gap: .8rem;
+  flex-wrap: wrap;
+}
+
+.langBadge {
+  border-radius: 0.35rem;
+  background-color: #F1F1F1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+}
+
+.langText {
+  font-weight: 600;
+  color: #585858;
+  line-height: 1;
+}
+
+.description {
+  font-weight: 400;
+  margin: 0;
+  color: #585858;
+  line-height: 1.2;
+}
+
+.linkContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.link {
+  font-weight: 400;
+  text-decoration: underline;
+  line-height: 1rem;
+  transform: translateY(-1.5px);
+  color: #585858;
+}

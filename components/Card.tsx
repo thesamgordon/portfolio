@@ -1,6 +1,7 @@
 import Image, { StaticImageData } from "next/image";
 import { motion } from "motion/react";
 import useWindowDimensions from "@/app/hooks/useWindowDimensions";
+import styles from "./Card.module.scss";
 
 export default function Card({
   title,
@@ -21,65 +22,36 @@ export default function Card({
 
   return (
     <div
+      className={styles.card}
       style={{
-        border: "1px solid #DDDDDD",
         width: width > 1200 ? 500 : "100%",
         borderRadius: width > 1000 ? "1rem" : ".75rem",
-        overflow: "hidden",
-        position: "relative",
-        backgroundColor: "#FBFBFB",
         padding: width > 1000 ? "1.5rem" : "1rem",
-        display: "flex",
-        flexDirection: "column",
-        gap: ".8rem",
       }}
     >
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-between",
-        }}
-      >
+      <div className={styles.header}>
         <h1
+          className={styles.title}
           style={{
             fontSize: width > 1000 ? "1.6rem" : "1.4rem",
-            fontWeight: 700,
-            margin: 0,
-            color: "#2D2D2D",
-            lineHeight: 0.8,
           }}
         >
           {title}
         </h1>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            gap: ".8rem",
-            flexWrap: "wrap",
-          }}
-        >
+        <div className={styles.languages}>
           {languages.map((lang, index) => (
             <div
               key={index}
+              className={styles.langBadge}
               style={{
                 padding: width > 1000 ? "0.25rem 0.5rem" : "0.2rem 0.4rem",
-                borderRadius: "0.35rem",
-                backgroundColor: "#F1F1F1",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                width: "60px",
                 height: width > 1000 ? "22px" : "20px",
               }}
             >
               <span
+                className={styles.langText}
                 style={{
                   fontSize: width > 1000 ? ".7rem" : "0.6rem",
-                  fontWeight: 600,
-                  color: "#585858",
-                  lineHeight: 1,
                 }}
               >
                 {lang}
@@ -89,24 +61,15 @@ export default function Card({
         </div>
       </div>
       <p
+        className={styles.description}
         style={{
           fontSize: width > 1000 ? "1rem" : "0.875rem",
-          fontWeight: 400,
-          margin: 0,
-          color: "#585858",
-          lineHeight: 1.2,
         }}
       >
         {description}
       </p>
       {contact && (
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "0.5rem",
-          }}
-        >
+        <div className={styles.linkContainer}>
           <svg
             version="1.1"
             xmlns="http://www.w3.org/2000/svg"
@@ -125,33 +88,19 @@ export default function Card({
           </svg>
           <motion.a
             href={"mailto:contact@thesamgordon.com"}
+            className={styles.link}
             style={{
               fontSize: width > 1000 ? "1rem" : "0.875rem",
-              fontWeight: 400,
-              textDecoration: "underline",
-              lineHeight: "1rem",
-              transform: "translateY(-1.5px)",
-              color: "#585858",
             }}
-            whileHover={{
-              marginLeft: "4px",
-            }}
-            whileTap={{
-              marginLeft: "2px",
-            }}
+            whileHover={{ marginLeft: "4px" }}
+            whileTap={{ marginLeft: "2px" }}
           >
             Contact for more information
           </motion.a>
         </div>
       )}
       {link && (
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "0.5rem",
-          }}
-        >
+        <div className={styles.linkContainer}>
           <svg
             width="16px"
             height="16px"
@@ -173,20 +122,12 @@ export default function Card({
           <motion.a
             href={link}
             target="_blank"
+            className={styles.link}
             style={{
               fontSize: width > 1000 ? "1rem" : "0.875rem",
-              fontWeight: 400,
-              textDecoration: "underline",
-              lineHeight: "1rem",
-              transform: "translateY(-1.5px)",
-              color: "#585858",
             }}
-            whileHover={{
-              marginLeft: "4px",
-            }}
-            whileTap={{
-              marginLeft: "2px",
-            }}
+            whileHover={{ marginLeft: "4px" }}
+            whileTap={{ marginLeft: "2px" }}
           >
             Learn more
           </motion.a>

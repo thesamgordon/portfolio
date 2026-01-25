@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import Button from "@/components/Button";
 import useWindowDimensions from "@/app/hooks/useWindowDimensions";
 import { motion } from "motion/react";
+import styles from "./HeroSection.module.scss";
 
 export default function HeroSection() {
   const { width } = useWindowDimensions();
@@ -95,43 +96,31 @@ export default function HeroSection() {
       }}
     >
       <div
+        className={styles.sectionContainer}
         style={{
           height: `calc(100dvh - ${
             width > 1450 ? "14rem" : width > 1050 ? "10rem" : "6rem"
           })`,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "space-between",
           margin: width > 1450 ? "7rem" : width > 1050 ? "5rem" : "3rem",
           gap: width > 1450 ? "5rem" : width > 1050 ? "5rem" : "4rem",
-          position: "relative",
         }}
       >
         <div
+          className={styles.mainRow}
           style={{
-            display: "flex",
-            flexDirection: "row",
             gap: width > 1450 ? "5rem" : width > 1050 ? "5rem" : "1rem",
-            width: "100%",
-            height: "100%",
           }}
         >
           <div
+            className={styles.textStack}
             style={{
-              display: "flex",
-              flexDirection: "column",
               gap: width > 1450 ? "10px" : width > 1050 ? ".5rem" : ".25rem",
             }}
           >
             <h1
+              className={styles.title}
               style={{
                 fontSize: titleFontSize,
-                fontWeight: 1000,
-                color: "white",
-                margin: 0,
-                lineHeight: 0.7,
-                letterSpacing: "-0.1rem",
                 whiteSpace: width > 1050 ? "nowrap" : "break-spaces",
               }}
             >
@@ -140,16 +129,16 @@ export default function HeroSection() {
             <div>
               <p style={subtitleStyle}>Programming in the spotlight.</p>
               <p style={descriptionStyle}>
-                As a theater enthusiast and a passionate developer, I work to create technology that enhances the performing arts and everyday life.
+                As a theater enthusiast and a passionate developer, I work to
+                create technology that enhances the performing arts and everyday
+                life.
               </p>
             </div>
 
             <div
+              className={styles.buttonRow}
               style={{
-                display: "flex",
-                flexDirection: "row",
                 gap: width > 1450 ? "3rem" : width > 1050 ? "2rem" : "1.5rem",
-                width: "max-content",
               }}
             >
               <Button title="Contact" url="mailto:sam@thesamgordon.com" />
@@ -158,13 +147,7 @@ export default function HeroSection() {
                 url="https://github.com/thesamgordon"
                 dropComponent={
                   <motion.div
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "0.5rem",
-                      width: "100%",
-                      justifyContent: "center",
-                    }}
+                    className={styles.githubDrop}
                     whileHover={{ transform: "translateY(-1px)" }}
                     whileTap={{ transform: "translateY(0px)" }}
                   >
@@ -190,12 +173,9 @@ export default function HeroSection() {
                       href="https://github.com/thesamgordon/portfolio"
                       target="_blank"
                       rel="noopener noreferrer"
+                      className={styles.githubLink}
                       style={{
                         fontSize: width > 1000 ? 14 : 8,
-                        color: "white",
-                        margin: 0,
-                        textDecoration: "underline",
-                        fontWeight: "400",
                       }}
                     >
                       View this website on GitHub
@@ -206,77 +186,37 @@ export default function HeroSection() {
             </div>
           </div>
 
-          <div
-            style={{
-              width: "100%",
-              height: "100%",
-              borderTop: "5px solid white",
-              borderRight: "5px solid white",
-            }}
-          />
+          <div className={styles.topRightBorder} />
         </div>
 
         <div
+          className={styles.footerWrapper}
           style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "end",
             gap: width > 1450 ? "4rem" : width > 1050 ? "3rem" : "2rem",
-            width: "100%",
-            height: "100%",
           }}
         >
           <div
+            className={styles.footerRow}
             style={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "end",
               gap: width > 1450 ? "7rem" : width > 1050 ? "5rem" : "1rem",
-              alignItems: "end",
-              width: "100%",
-              height: "100%",
             }}
           >
+            <div className={styles.bottomLeftBorder} />
             <div
+              className={styles.footerTextStack}
               style={{
-                width: "100%",
-                height: "100%",
-                borderBottom: "5px solid white",
-                borderLeft: "5px solid white",
-              }}
-            />
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
                 gap: width > 1450 ? "3rem" : width > 1050 ? "1.5rem" : "1rem",
               }}
             >
               <h1
-                style={{
-                  fontSize: footerFontSize,
-                  fontWeight: 100,
-                  color: "white",
-                  margin: 0,
-                  lineHeight: 0.5,
-                  textAlign: "right",
-                  letterSpacing: "-0.1rem",
-                  whiteSpace: "nowrap",
-                }}
+                className={styles.footerTitle}
+                style={{ fontSize: footerFontSize }}
               >
                 developer
               </h1>
               <h1
-                style={{
-                  fontSize: footerFontSize,
-                  fontWeight: 100,
-                  color: "white",
-                  margin: 0,
-                  lineHeight: 0.5,
-                  textAlign: "right",
-                  letterSpacing: "-0.1rem",
-                  whiteSpace: "nowrap",
-                }}
+                className={styles.footerTitle}
+                style={{ fontSize: footerFontSize }}
               >
                 theater technician
               </h1>

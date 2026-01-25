@@ -7,6 +7,7 @@ import { useRef } from "react";
 import QLabImage from "@/lib/images/qlab.png";
 import useWindowDimensions from "@/app/hooks/useWindowDimensions";
 import Project from "../projects/Project";
+import styles from "./ProjectSection.module.scss";
 
 export default function ProjectSection() {
   const ref = useRef<HTMLDivElement>(null);
@@ -57,30 +58,15 @@ export default function ProjectSection() {
 
   return (
     <section
+      className={styles.section}
       style={{
-        height: "100%",
-        width: "100%",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        backgroundColor: "white",
-        zIndex: 0,
-        position: "relative",
         paddingLeft: width > 1000 ? "6rem" : "1rem",
         paddingRight: width > 1000 ? "6rem" : "1rem",
-        paddingTop: "12rem",
         paddingBottom: width > 1450 ? "20rem" : "8rem",
       }}
       ref={ref}
     >
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "flex-start",
-          maxWidth: 1200,
-        }}
-      >
+      <div className={styles.container}>
         <Project />
       </div>
     </section>

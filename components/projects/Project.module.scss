@@ -24,20 +24,27 @@
 }
 
 .leftBox {
-    width: 40%;
+    border-left: 1px solid #dbdbdb;
+    border-top: 1px solid #dbdbdb;
+    padding: 1rem;
+    height: calc(100% + 1px);
 }
 
 .leftBoxTitle {
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     color: var(--text-primary);
     font-weight: 900;
     font-family: var(--font-inter);
+    line-height: .8;
+    margin-bottom: .3rem;
 }
 
 .leftBoxDescription {
-    font-size: 1rem;
+    font-size: .9rem;
     color: var(--text-secondary);
     font-family: var(--font-inter);
+    width: 80%;
+    padding-bottom: 15vh;
 }
 
 .topContainer {
@@ -48,15 +55,15 @@
 
 .rightBox {
     width: 40%;
+    width: 1300px;
 }
 
 .topBottomContainer {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-self: center;
     height: 70%;
-    width: 90%;
+    width: 100%;
     margin-top: 2rem;
 }
 
