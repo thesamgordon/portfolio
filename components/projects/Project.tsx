@@ -14,6 +14,7 @@ import LinkCard from "./card/LinkCard";
 import Filler from "./Filler";
 import styles from "./Project.module.scss";
 import { ReactNode, useRef } from "react";
+import useWindowDimensions from "@/app/hooks/useWindowDimensions";
 
 interface ProjectProps {
   name: string;
@@ -57,7 +58,7 @@ export default function Project({
 }: ProjectProps) {
   const container = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll();
-  console.log("Project Rendered:", linkCard);
+  const { width } = useWindowDimensions();
 
   const repeatedName = Array(10).fill(name.toUpperCase()).join(" • ");
 
@@ -118,7 +119,9 @@ export default function Project({
           transition={{ duration: 0.7, delay: 0.2, ease: EASE }}
         >
           {linkCard}
-          <Filler count={4} />
+          <Filler count={
+            width < 1150 ? 2 : 3
+          } />
         </motion.div>
       </div>
     </motion.div>

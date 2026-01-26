@@ -8,6 +8,18 @@
     font-weight: 1000;
 }
 
+@media (max-width: 1150px) {
+    .projectTitle {
+        font-size: 7rem;
+    }
+}
+
+@media (max-width: 700px) {
+    .projectTitle {
+        font-size: 4rem;
+    }
+}
+
 .projectContainer {
     display: flex;
     flex-direction: column;
@@ -70,4 +82,28 @@
 .bottom {
     display: flex;
     flex-direction: row;
+}
+
+@media (max-width: 700px) {
+    .projectContainer {
+        width: calc(90%);
+    }
+    
+    .rightBox {
+        width: 100%;
+    }
+
+    .leftBoxDescription {
+        width: 100%;
+        font-size: 0.6rem;
+    }
+
+    .leftBoxTitle {
+        font-size: 0.8rem;
+        margin-bottom: 0.2rem;
+    }
+
+    .leftBox {
+        padding: 0.7rem;
+    }
 }

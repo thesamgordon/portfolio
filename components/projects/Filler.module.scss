@@ -10,3 +10,18 @@
     flex-direction: row;
     mask: linear-gradient(to right, black, transparent);
 }
+
+
+@media (max-width: 1150px) {
+    .fillerBox {
+        height: 180px;
+        width: 180px;
+    }
+}
+
+@media (max-width: 700px) {
+    .fillerBox {
+        height: 120px;
+        width: 120px;
+    }
+}

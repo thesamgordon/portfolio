@@ -7,6 +7,7 @@ interface LinkCardProps {
   svgName: string;
   color: string;
   url: string;
+  interactText: string;
 }
 
 export default function LinkCard({
@@ -15,6 +16,7 @@ export default function LinkCard({
   svgName,
   color,
   url,
+  interactText
 }: LinkCardProps) {
   return (
     <div
@@ -28,12 +30,13 @@ export default function LinkCard({
         <Image
           src={`/svg/${svgName}.svg`}
           alt="Link Icon"
-          width={240}
-          height={240}
+          className={styles.linkCardSvg}
+          width={0}
+          height={0}
         />
       </div>
       <div className={styles.linkButtonContainer}>
-        <h1 className={styles.linkButtonText}>VISIT SITE</h1>
+        <h1 className={styles.linkButtonText}>{interactText}</h1>
         <Image src={`/svg/link.svg`} alt="Arrow Icon" width={18} height={18} />
       </div>
     </div>

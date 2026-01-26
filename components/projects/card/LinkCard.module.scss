@@ -29,6 +29,25 @@
     }
 }
 
+@media (max-width: 1150px) {
+    .linkCardContainer {
+        width: 180px;
+        height: 180px;
+    }
+}
+
+.linkCardSvg {
+    width: 230px;
+    height: 230px;
+}
+
+@media (max-width: 1150px) {
+    .linkCardSvg {
+        width: 180px;
+        height: 180px;
+    }
+}
+
 .linkCardImage {
     position: absolute;
     left: 50%;
@@ -38,7 +57,7 @@
 }
 
 .linkCardDescription {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     font-family: var(--font-inter);
 }
 
@@ -55,4 +74,40 @@
     right: 1rem;
     display: flex;
     gap: 0.3rem;
+}
+
+@media (max-width: 700px) {
+    .linkCardDescription {
+        font-size: 0.6rem;
+    }
+
+    .linkButtonText {
+        font-size: 0.6rem;
+        display: none;
+    }
+
+    .linkCardTitle {
+        font-size: 0.8rem;
+        margin-bottom: 0.2rem;
+    }
+
+    .linkCardContainer {
+        padding: 0.7rem;
+        width: 120px;
+        height: 120px;
+    }
+
+    .linkCardSvg {
+        width: 120px;
+        height: 120px;
+    }
+
+    .linkCardImage {
+        bottom: -70px;
+    }
+
+    .linkButtonContainer {
+        bottom: 0.5rem;
+        right: 0.5rem;
+    }
 }

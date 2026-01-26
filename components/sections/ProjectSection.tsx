@@ -62,6 +62,7 @@ const PROJECTS_DATA = [
         svgName="github"
         color="#111512"
         url={"https://github.com/ldg-sh"}
+        interactText={"VISIT SITE"}
       />
     ),
     index: 0,
@@ -101,6 +102,7 @@ const PROJECTS_DATA = [
         svgName="github"
         color="#111512"
         url={"https://github.com/thesamgordon/pastebook"}
+        interactText={"VISIT SITE"}
       />
     ),
     index: 1,
@@ -127,6 +129,7 @@ const PROJECTS_DATA = [
         svgName="email"
         color="#111512"
         url={"mailto:sam@thesamgordon.com"}
+        interactText={"CONTACT"}
       />
     ),
     index: 2,
