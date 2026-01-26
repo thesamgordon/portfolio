@@ -58,6 +58,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <meta name="og:image" content="https://thesamgordon.com/opengraph-image.png" />
+      </head>
       <body className={`${inter.variable} ${overusedGroteske.className}`}>{children}</body>
     </html>
   );
