@@ -23,6 +23,7 @@ export default function LinkCard({
       className={styles.linkCardContainer}
       style={{ backgroundColor: color }}
       onClick={() => window.open(url, "_blank")}
+      key={title + "-card"}
     >
       <h1 className={styles.linkCardTitle}>{title}</h1>
       <p className={styles.linkCardDescription}>{description}</p>

@@ -57,7 +57,7 @@
     color: var(--text-secondary);
     font-family: var(--font-inter);
     width: 80%;
-    padding-bottom: 15vh;
+    padding-bottom: 20vh;
 }
 
 .topContainer {
@@ -80,6 +80,11 @@
 }
 
 .bottom {
+    display: flex;
+    flex-direction: row;
+}
+
+.cardContainer {
     display: flex;
     flex-direction: row;
 }

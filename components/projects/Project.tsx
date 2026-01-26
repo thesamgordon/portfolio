@@ -6,11 +6,8 @@ import {
   useMotionTemplate,
   useScroll,
   useTransform,
-  useMotionValueEvent,
-  MotionValue,
 } from "motion/react";
 import CodeCard from "./card/CodeCard";
-import LinkCard from "./card/LinkCard";
 import Filler from "./Filler";
 import styles from "./Project.module.scss";
 import { ReactNode, useRef } from "react";
@@ -25,7 +22,7 @@ interface ProjectProps {
     svgName: string;
     color: string;
   }[];
-  linkCard: ReactNode;
+  linkCards: [ReactNode];
   index?: number;
   scrollDirection: number;
 }
@@ -52,7 +49,7 @@ export default function Project({
   name,
   description,
   technologies,
-  linkCard,
+  linkCards,
   index,
   scrollDirection,
 }: ProjectProps) {
@@ -113,16 +110,31 @@ export default function Project({
             ))}
           </div>
         </div>
-        <motion.div
-          className={styles.bottom}
-          variants={shutterVariants}
-          transition={{ duration: 0.7, delay: 0.2, ease: EASE }}
-        >
-          {linkCard}
-          <Filler count={
-            width < 1150 ? 2 : 3
-          } />
-        </motion.div>
+        <div className={styles.cardContainer}>
+          {linkCards.map((card, i) => (
+            <motion.div
+              key={i}
+              className={styles.linkCardWrapper}
+              variants={shutterVariants}
+              transition={{ duration: 0.7, delay: 0.3 + i * 0.1, ease: EASE }}
+            >
+              {card}
+            </motion.div>
+          ))}
+
+          <motion.div
+            key={"filler-card"}
+            className={styles.linkCardWrapper}
+            variants={shutterVariants}
+            transition={{
+              duration: 0.7,
+              delay: 0.3 + linkCards.length * 0.1,
+              ease: EASE,
+            }}
+          >
+            <Filler count={(width < 1150 ? 2 : 3) - (linkCards.length - 1)} />
+          </motion.div>
+        </div>
       </div>
     </motion.div>
   );

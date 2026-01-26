@@ -23,7 +23,7 @@
         filter: brightness(1.2);
     }
 
-    &.clicked {
+    &:active {
         box-shadow: 0 0 30px rgba(30, 18, 18, 0.4);
         filter: brightness(1.1);
     }

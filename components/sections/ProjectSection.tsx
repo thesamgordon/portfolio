@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useScroll, MotionValue, AnimatePresence } from "motion/react";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, ReactNode } from "react";
 import Project from "../projects/Project";
 import styles from "./ProjectSection.module.scss";
 import LinkCard from "../projects/card/LinkCard";
@@ -55,7 +55,7 @@ const PROJECTS_DATA = [
         color: "#0064a5",
       },
     ],
-    linkCard: (
+    linkCards: [
       <LinkCard
         title={"GITHUB"}
         description={`Browse the code that makes Ledger magical.`}
@@ -63,8 +63,9 @@ const PROJECTS_DATA = [
         color="#111512"
         url={"https://github.com/ldg-sh"}
         interactText={"VISIT SITE"}
-      />
-    ),
+        key={"github-card"}
+      />,
+    ],
     index: 0,
   },
   {
@@ -95,7 +96,7 @@ const PROJECTS_DATA = [
         color: "#0064a5",
       },
     ],
-    linkCard: (
+    linkCards: [
       <LinkCard
         title={"GITHUB"}
         description={`Browse the code that makes PasteBook magical.`}
@@ -103,8 +104,18 @@ const PROJECTS_DATA = [
         color="#111512"
         url={"https://github.com/thesamgordon/pastebook"}
         interactText={"VISIT SITE"}
-      />
-    ),
+        key={"github-card"}
+      />,
+      <LinkCard
+        title={"LIVE SITE"}
+        description={`Check out PasteBook in action!`}
+        svgName="link-large"
+        color="#006118"
+        url={"https://pastebook.dev"}
+        interactText={"VISIT SITE"}
+        key={"live-site-card"}
+      />,
+    ],
     index: 1,
   },
   {
@@ -122,7 +133,7 @@ const PROJECTS_DATA = [
         color: "#3776AB",
       },
     ],
-    linkCard: (
+    linkCards: [
       <LinkCard
         title={"CONTACT"}
         description={`Get in touch to learn more about Sheet Snip.`}
@@ -130,8 +141,9 @@ const PROJECTS_DATA = [
         color="#111512"
         url={"mailto:sam@thesamgordon.com"}
         interactText={"CONTACT"}
-      />
-    ),
+        key={"contact-card"}
+      />,
+    ],
     index: 2,
   },
 ];
@@ -201,7 +213,7 @@ export default function ProjectSection({
           >
             <Project
               technologies={project.technologies}
-              linkCard={project.linkCard}
+              linkCards={project.linkCards as [ReactNode]}
               name={project.name}
               description={project.description}
               index={project.index}
