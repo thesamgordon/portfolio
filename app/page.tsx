@@ -13,7 +13,6 @@ import {
   useScroll,
   useTransform,
 } from "motion/react";
-import { useRef } from "react";
 import useWindowDimensions from "./hooks/useWindowDimensions";
 
 export default function HomePage() {

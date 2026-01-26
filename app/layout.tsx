@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -45,6 +45,10 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Sam Gordon",
   description: "A theater enthusiast and a passionate developer, working to create technology that enhances the performing arts and everyday life.",
+};
+
+export const viewport: Viewport = {
+  themeColor: "#BE0900",
 };
 
 export default function RootLayout({
