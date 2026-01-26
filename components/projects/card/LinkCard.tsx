@@ -20,6 +20,7 @@ export default function LinkCard({
     <div
       className={styles.linkCardContainer}
       style={{ backgroundColor: color }}
+      onClick={() => window.open(url, "_blank")}
     >
       <h1 className={styles.linkCardTitle}>{title}</h1>
       <p className={styles.linkCardDescription}>{description}</p>

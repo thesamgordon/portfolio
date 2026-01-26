@@ -1,15 +1,19 @@
+"use client";
+
 import {
+  Easing,
   motion,
-  MotionValue,
   useMotionTemplate,
   useScroll,
   useTransform,
+  useMotionValueEvent,
+  MotionValue,
 } from "motion/react";
 import CodeCard from "./card/CodeCard";
 import LinkCard from "./card/LinkCard";
 import Filler from "./Filler";
 import styles from "./Project.module.scss";
-import { useRef } from "react";
+import { ReactNode, useRef } from "react";
 
 interface ProjectProps {
   name: string;
@@ -20,32 +24,60 @@ interface ProjectProps {
     svgName: string;
     color: string;
   }[];
-  githubUrl: string;
-  scrollProgress?: MotionValue<number>;
+  linkCard: ReactNode;
+  index?: number;
+  scrollDirection: number;
 }
+
+const shutterVariants = {
+  enter: {
+    clipPath: "inset(0% 0% 100% 0%)",
+    opacity: 0,
+  },
+  center: {
+    clipPath: "inset(0% 0% 0% 0%)",
+    opacity: 1,
+    y: 0,
+  },
+  exit: {
+    clipPath: "inset(100% 0% 0% 0%)",
+    opacity: 0,
+  },
+};
+
+const EASE = [0.813, 0, 0.182, 0.994] as Easing;
 
 export default function Project({
   name,
   description,
   technologies,
-  githubUrl,
-  scrollProgress,
+  linkCard,
+  index,
+  scrollDirection,
 }: ProjectProps) {
   const container = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll();
+  console.log("Project Rendered:", linkCard);
 
-  const { scrollYProgress } = useScroll({
-    target: container,
-    offset: ["start end", "end start"],
-  });
+  const repeatedName = Array(10).fill(name.toUpperCase()).join(" • ");
 
-  const repeatedName = Array(5).fill(name).join(" • ");
+  const x = useTransform(
+    scrollYProgress,
+    [0, 1],
+    [0, -3000 + (index ? index * 1000 : 0)],
+  );
 
-  const x = useTransform(scrollProgress ?? scrollYProgress, [0, 1], [0, -1000]);
   const transformTemplate = useMotionTemplate`translateX(${x}px)`;
 
   return (
     <motion.div className={styles.projectContainer} ref={container}>
-      <motion.div className={styles.titleContainer}>
+      <motion.div
+        className={styles.titleContainer}
+        initial={{ x: scrollDirection * 3000 }}
+        animate={{ x: 0 }}
+        transition={{ duration: 1, ease: EASE }}
+        exit={{ x: scrollDirection * -3000 }}
+      >
         <motion.h1
           className={styles.projectTitle}
           style={{ transform: transformTemplate }}
@@ -55,32 +87,39 @@ export default function Project({
       </motion.div>
       <div className={styles.topBottomContainer}>
         <div className={styles.topContainer}>
-          <div className={styles.leftBox}>
+          <motion.div
+            className={styles.leftBox}
+            variants={shutterVariants}
+            transition={{ duration: 0.7, delay: 0.1, ease: EASE }}
+          >
             <h1 className={styles.leftBoxTitle}>DESCRIPTION</h1>
             <div className={styles.leftBoxDescription}>{description}</div>
-          </div>
+          </motion.div>
           <div className={styles.rightBox}>
-            {technologies.map((tech) => (
-              <CodeCard
+            {technologies.map((tech, i) => (
+              <motion.div
                 key={tech.title}
-                title={tech.title}
-                description={tech.description}
-                svgName={tech.svgName}
-                color={tech.color}
-              />
+                variants={shutterVariants}
+                transition={{ duration: 0.7, delay: 0.2 + i * 0.1, ease: EASE }}
+              >
+                <CodeCard
+                  title={tech.title}
+                  description={tech.description}
+                  svgName={tech.svgName}
+                  color={tech.color}
+                />
+              </motion.div>
             ))}
           </div>
         </div>
-        <div className={styles.bottom}>
-          <LinkCard
-            title={"GITHUB"}
-            description={"Browse the code that makes Ledger magical."}
-            svgName="github"
-            color="#111512"
-            url={githubUrl}
-          />
-          <Filler count={3} />
-        </div>
+        <motion.div
+          className={styles.bottom}
+          variants={shutterVariants}
+          transition={{ duration: 0.7, delay: 0.2, ease: EASE }}
+        >
+          {linkCard}
+          <Filler count={4} />
+        </motion.div>
       </div>
     </motion.div>
   );

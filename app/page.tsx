@@ -54,54 +54,15 @@ export default function HomePage() {
       <ProjectSection marginTop={marginTop} />
 
       <div className={styles.footerContainer}>
-        <motion.div
-          className={styles.footerShape}
-          style={{
-            height:
-              windowWidth > 1000 ? "20vh" : windowWidth > 875 ? "15vh" : "10vh",
-            width:
-              windowWidth > 1000 ? "40%" : windowWidth > 875 ? "40%" : "50%",
-          }}
-        ></motion.div>
-        <div
-          className={styles.footerTextWrapper}
-          style={{
-            padding: windowWidth > 1000 ? "1rem" : ".5rem",
-          }}
-        >
+        <motion.div className={styles.footerShape}></motion.div>
+        <div className={styles.footerTextWrapper}>
           <div>
-            <p
-              className={styles.copyright}
-              style={{
-                fontSize:
-                  windowWidth > 1000
-                    ? "1.25rem"
-                    : windowWidth > 875
-                    ? "1rem"
-                    : windowWidth > 600
-                    ? "0.875rem"
-                    : "0.75rem",
-              }}
-            >
+            <p className={styles.copyright}>
               {windowWidth < 600
                 ? `© ${year} Sam Gordon`
                 : `© ${year} Sam Gordon. All rights reserved.`}
             </p>
-            <h1
-              className={styles.footerName}
-              style={{
-                fontSize:
-                  windowWidth > 1300
-                    ? "10vh"
-                    : windowWidth > 1050
-                    ? "9vh"
-                    : windowWidth > 875
-                    ? "7vh"
-                    : windowWidth > 600
-                    ? "5vh"
-                    : "4vh",
-              }}
-            >
+            <h1 className={styles.footerName}>
               Sam Gordon
             </h1>
           </div>

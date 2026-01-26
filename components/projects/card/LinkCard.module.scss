@@ -2,8 +2,8 @@
     font-size: 1.1rem;
     font-weight: 900;
     font-family: var(--font-inter);
-    line-height: .8;
-    margin-bottom: .4rem;
+    line-height: 0.8;
+    margin-bottom: 0.4rem;
 }
 
 .linkCardContainer {
@@ -12,13 +12,21 @@
     position: relative;
     width: 230px;
     height: 230px;
-    overflow: hidden;    
-    transition: box-shadow 0.3s ease-in-out, filter 0.3s ease-in-out;
+    transition:
+        box-shadow 0.3s ease-in-out,
+        transform 0.3s ease-in-out,
+        filter 0.3s ease-in-out;
     cursor: pointer;
-}
 
-.linkCardContainer:hover {
-    filter: brightness(1.2);
+    &:hover {
+        box-shadow: 0 0 30px rgba(30, 18, 18, 0.3);
+        filter: brightness(1.2);
+    }
+
+    &.clicked {
+        box-shadow: 0 0 30px rgba(30, 18, 18, 0.4);
+        filter: brightness(1.1);
+    }
 }
 
 .linkCardImage {
@@ -30,12 +38,12 @@
 }
 
 .linkCardDescription {
-    font-size: .9rem;
+    font-size: 0.9rem;
     font-family: var(--font-inter);
 }
 
 .linkButtonText {
-    font-size: .8rem;
+    font-size: 0.8rem;
     font-family: var(--font-inter);
     text-decoration: underline;
     font-weight: 400;

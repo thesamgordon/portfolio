@@ -1,6 +1,5 @@
 .main {
   position: relative;
-  // Ensure no overflow hidden
   overflow: visible;
 }
 
@@ -18,7 +17,6 @@
   right: 0;
   bottom: 0;
   z-index: 0;
-  pointer-events: none;
 }
 
 .projectWrapper {
@@ -39,7 +37,17 @@
   border-top-right-radius: 200px;
   border-bottom-right-radius: 200px;
   z-index: -1;
-  pointer-events: none;
+  height: 20vh;
+  width: 40%;
+
+  @media (max-width: 1000px) {
+    height: 15vh;
+  }
+
+  @media (max-width: 875px) {
+    height: 10vh;
+    width: 50%;
+  }
 }
 
 .footerTextWrapper {
@@ -52,6 +60,11 @@
   justify-content: flex-end;
   align-items: flex-end;
   gap: .2rem;
+  padding: 1rem;
+
+  @media (max-width: 1000px) {
+    padding: .5rem;
+  }
 }
 
 .copyright {
@@ -60,6 +73,19 @@
   display: block;
   text-align: right;
   line-height: 1.5;
+  font-size: 1.25rem;
+
+  @media (max-width: 1000px) {
+    font-size: 1rem;
+  }
+
+  @media (max-width: 875px) {
+    font-size: 0.875rem;
+  }
+
+  @media (max-width: 600px) {
+    font-size: 0.75rem;
+  }
 }
 
 .footerName {
@@ -69,4 +95,21 @@
   line-height: 0.67;
   color: white;
   letter-spacing: -0.03em;
+  font-size: 10vh;
+
+  @media (max-width: 1300px) {
+    font-size: 9vh;
+  }
+
+  @media (max-width: 1050px) {
+    font-size: 7vh;
+  }
+
+  @media (max-width: 875px) {
+    font-size: 5vh;
+  }
+
+  @media (max-width: 600px) {
+    font-size: 4vh;
+  }
 }

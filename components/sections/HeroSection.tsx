@@ -1,75 +1,12 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "@/components/Button";
-import useWindowDimensions from "@/app/hooks/useWindowDimensions";
 import { motion } from "motion/react";
 import styles from "./HeroSection.module.scss";
 
 export default function HeroSection() {
-  const { width } = useWindowDimensions();
   const [hydrated, setHydrated] = useState(false);
-
-  const titleFontSize =
-    width > 1450
-      ? "12rem"
-      : width > 1050
-      ? "8rem"
-      : width > 875
-      ? "8rem"
-      : "3.5rem";
-
-  const footerFontSize =
-    width > 1450 ? "8rem" : width > 1050 ? "5rem" : "2.5rem";
-
-  const subtitleStyle = {
-    fontSize:
-      width > 1450
-        ? "2rem"
-        : width > 1050
-        ? "1.5rem"
-        : width > 875
-        ? "1.4rem"
-        : ".8rem",
-    width:
-      width > 1450
-        ? "55rem"
-        : width > 1050
-        ? "40rem"
-        : width > 875
-        ? "35rem"
-        : "100%",
-    color: "white",
-    margin: 0,
-    lineHeight: 1.1,
-    fontWeight: 700,
-    marginTop: width > 1300 ? "1.1rem" : width > 1050 ? "1.1rem" : ".5rem",
-  };
-
-  const descriptionStyle = {
-    fontSize:
-      width > 1450
-        ? "2rem"
-        : width > 1050
-        ? "1.5rem"
-        : width > 875
-        ? "1.4rem"
-        : "1rem",
-    width:
-      width > 1450
-        ? "55rem"
-        : width > 1050
-        ? "40rem"
-        : width > 875
-        ? "35rem"
-        : "100%",
-    color: "white",
-    margin: 0,
-    lineHeight: 1.1,
-    fontWeight: 300,
-    marginTop: "0rem",
-    marginBottom: width > 1450 ? "1.5rem" : width > 1050 ? "1.5rem" : ".8rem",
-  };
 
   useEffect(() => {
     setHydrated(true);
@@ -95,52 +32,22 @@ export default function HeroSection() {
         ease: [0.75, 0, 0.25, 1],
       }}
     >
-      <div
-        className={styles.sectionContainer}
-        style={{
-          height: `calc(100dvh - ${
-            width > 1450 ? "14rem" : width > 1050 ? "10rem" : "6rem"
-          })`,
-          margin: width > 1450 ? "7rem" : width > 1050 ? "5rem" : "3rem",
-          gap: width > 1450 ? "5rem" : width > 1050 ? "5rem" : "4rem",
-        }}
-      >
-        <div
-          className={styles.mainRow}
-          style={{
-            gap: width > 1450 ? "5rem" : width > 1050 ? "5rem" : "1rem",
-          }}
-        >
-          <div
-            className={styles.textStack}
-            style={{
-              gap: width > 1450 ? "10px" : width > 1050 ? ".5rem" : ".25rem",
-            }}
-          >
-            <h1
-              className={styles.title}
-              style={{
-                fontSize: titleFontSize,
-                whiteSpace: width > 1050 ? "nowrap" : "break-spaces",
-              }}
-            >
+      <div className={styles.sectionContainer}>
+        <div className={styles.mainRow}>
+          <div className={styles.textStack}>
+            <h1 className={styles.title}>
               Sam Gordon
             </h1>
             <div>
-              <p style={subtitleStyle}>Programming in the spotlight.</p>
-              <p style={descriptionStyle}>
+              <p className={styles.subtitle}>Programming in the spotlight.</p>
+              <p className={styles.description}>
                 As a theater enthusiast and a passionate developer, I work to
                 create technology that enhances the performing arts and everyday
                 life.
               </p>
             </div>
 
-            <div
-              className={styles.buttonRow}
-              style={{
-                gap: width > 1450 ? "3rem" : width > 1050 ? "2rem" : "1.5rem",
-              }}
-            >
+            <div className={styles.buttonRow}>
               <Button title="Contact" url="mailto:sam@thesamgordon.com" />
               <Button
                 title="GitHub"
@@ -174,9 +81,6 @@ export default function HeroSection() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className={styles.githubLink}
-                      style={{
-                        fontSize: width > 1000 ? 14 : 8,
-                      }}
                     >
                       View this website on GitHub
                     </motion.a>
@@ -189,35 +93,14 @@ export default function HeroSection() {
           <div className={styles.topRightBorder} />
         </div>
 
-        <div
-          className={styles.footerWrapper}
-          style={{
-            gap: width > 1450 ? "4rem" : width > 1050 ? "3rem" : "2rem",
-          }}
-        >
-          <div
-            className={styles.footerRow}
-            style={{
-              gap: width > 1450 ? "7rem" : width > 1050 ? "5rem" : "1rem",
-            }}
-          >
+        <div className={styles.footerWrapper}>
+          <div className={styles.footerRow}>
             <div className={styles.bottomLeftBorder} />
-            <div
-              className={styles.footerTextStack}
-              style={{
-                gap: width > 1450 ? "3rem" : width > 1050 ? "1.5rem" : "1rem",
-              }}
-            >
-              <h1
-                className={styles.footerTitle}
-                style={{ fontSize: footerFontSize }}
-              >
+            <div className={styles.footerTextStack}>
+              <h1 className={styles.footerTitle}>
                 developer
               </h1>
-              <h1
-                className={styles.footerTitle}
-                style={{ fontSize: footerFontSize }}
-              >
+              <h1 className={styles.footerTitle}>
                 theater technician
               </h1>
             </div>
