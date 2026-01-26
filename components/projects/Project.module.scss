@@ -1,0 +1,109 @@
+.projectTitle {
+    font-size: 10rem;
+    white-space: nowrap;
+    margin-bottom: 1rem;
+    line-height: 1;
+    text-align: center;
+    color: var(--text-primary);
+    font-weight: 1000;
+}
+
+@media (max-width: 1150px) {
+    .projectTitle {
+        font-size: 7rem;
+    }
+}
+
+@media (max-width: 700px) {
+    .projectTitle {
+        font-size: 4rem;
+    }
+}
+
+.projectContainer {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 80vh;
+    width: 80%;
+}
+
+.titleContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(-50%);
+}
+
+.leftBox {
+    border-left: 1px solid #dbdbdb;
+    border-top: 1px solid #dbdbdb;
+    padding: 1rem;
+    height: calc(100%);
+    width: 100%;
+}
+
+.leftBoxTitle {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    font-weight: 900;
+    font-family: var(--font-inter);
+    line-height: .8;
+    margin-bottom: .3rem;
+}
+
+.leftBoxDescription {
+    font-size: .9rem;
+    color: var(--text-secondary);
+    font-family: var(--font-inter);
+    width: 80%;
+    padding-bottom: 15vh;
+}
+
+.topContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.rightBox {
+    width: 1000px;
+}
+
+.topBottomContainer {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    height: 70%;
+    width: 100%;
+    margin-top: 2rem;
+}
+
+.bottom {
+    display: flex;
+    flex-direction: row;
+}
+
+@media (max-width: 700px) {
+    .projectContainer {
+        width: 90%;
+    }
+
+    .rightBox {
+        width: 100%;
+    }
+
+    .leftBoxDescription {
+        width: 100%;
+        font-size: 0.6rem;
+    }
+
+    .leftBoxTitle {
+        font-size: 0.8rem;
+        margin-bottom: 0.2rem;
+    }
+
+    .leftBox {
+        padding: 0.7rem;
+    }
+}

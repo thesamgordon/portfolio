@@ -3,6 +3,7 @@ import Background from "@/components/Background";
 import Bars from "@/components/sections/Bars";
 import HeroSection from "@/components/sections/HeroSection";
 import ProjectSection from "@/components/sections/ProjectSection";
+import styles from "./page.module.scss";
 
 import {
   cubicBezier,
@@ -30,133 +31,38 @@ export default function HomePage() {
     ease: cubicBezier(0.4, 0.1, 0.2, 1),
   });
 
-  const secondRef = useRef<HTMLDivElement>(null);
-
-  const { scrollY: secondScrollY } = useScroll({
-    target: secondRef,
-    offset: ["start end", "start start"],
-  });
-
-  const width = useTransform(secondScrollY, [600, 800], [80, 60], {
+  const marginTop = useTransform(scrollY, [0, 1000], [300, -300], {
     ease: cubicBezier(0.4, 0.1, 0.2, 1),
   });
 
-  const widthTemplate = useMotionTemplate`${width}%`;
-
   return (
-    <main>
+    <main className={styles.main}>
       <Background />
-      <div
-        style={{
-          backgroundColor: "transparent",
-          height: "100dvh",
-          zIndex: -1,
-          pointerEvents: "none",
-        }}
-      ></div>
+      <div className={styles.spacer}></div>
       <motion.div
+        className={styles.heroFixed}
         style={{
-          position: "fixed",
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          zIndex: 0,
           filter: filter,
           scale: scale,
-          pointerEvents: "auto",
         }}
       >
         <HeroSection />
       </motion.div>
 
       <Bars />
-      <motion.div
-        ref={secondRef}
-        style={{
-          marginTop: useTransform(scrollY, [0, 1000], [300, -300], {
-            ease: cubicBezier(0.4, 0.1, 0.2, 1),
-          }),
-        }}
-      >
-        <ProjectSection />
-      </motion.div>
-      <div
-        style={{
-          position: "relative",
-          overflow: "hidden",
-          width: "100%",
-        }}
-      >
-        <motion.div
-          style={{
-            backgroundColor: "white",
-            height:
-              windowWidth > 1000 ? "20vh" : windowWidth > 875 ? "15vh" : "10vh",
-            width:
-              windowWidth > 1000 ? "40%" : windowWidth > 875 ? "40%" : "50%",
-            borderTopRightRadius: "200px",
-            borderBottomRightRadius: "200px",
-            zIndex: -1,
-            pointerEvents: "none",
-          }}
-        ></motion.div>
-        <div
-          style={{
-            position: "absolute",
-            bottom: 0,
-            right: 0,
-            width: "100%",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "end",
-            alignItems: "end",
-            gap: ".2rem",
-            padding: windowWidth > 1000 ? "1rem" : ".5rem",
-          }}
-        >
+      
+      <ProjectSection marginTop={marginTop} />
+
+      <div className={styles.footerContainer}>
+        <motion.div className={styles.footerShape}></motion.div>
+        <div className={styles.footerTextWrapper}>
           <div>
-            <p
-              style={{
-                color: "white",
-                fontSize:
-                  windowWidth > 1000
-                    ? "1.25rem"
-                    : windowWidth > 875
-                    ? "1rem"
-                    : windowWidth > 600
-                    ? "0.875rem"
-                    : "0.75rem",
-                margin: 0,
-                display: "block",
-                textAlign: "right",
-                lineHeight: 1.5,
-              }}
-            >
+            <p className={styles.copyright}>
               {windowWidth < 600
                 ? `© ${year} Sam Gordon`
                 : `© ${year} Sam Gordon. All rights reserved.`}
             </p>
-            <h1
-              style={{
-                fontWeight: 900,
-                textAlign: "right",
-                fontSize:
-                  windowWidth > 1300
-                    ? "10vh"
-                    : windowWidth > 1050
-                    ? "9vh"
-                    : windowWidth > 875
-                    ? "7vh"
-                    : windowWidth > 600
-                    ? "5vh"
-                    : "4vh",
-                margin: 0,
-                lineHeight: 0.67,
-                color: "white",
-                letterSpacing: "-0.03em",
-              }}
-            >
+            <h1 className={styles.footerName}>
               Sam Gordon
             </h1>
           </div>

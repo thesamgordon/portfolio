@@ -1,0 +1,27 @@
+.fillerBox {
+    height: 230px;
+    width: 230px;
+    border: solid 1px #dbdbdb;
+    margin-right: -1px;
+}
+
+.fillerContainer {
+    display: flex;
+    flex-direction: row;
+    mask: linear-gradient(to right, black, transparent);
+}
+
+
+@media (max-width: 1150px) {
+    .fillerBox {
+        height: 180px;
+        width: 180px;
+    }
+}
+
+@media (max-width: 700px) {
+    .fillerBox {
+        height: 120px;
+        width: 120px;
+    }
+}

@@ -1,6 +1,8 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --text-primary: #2D2D2D;
+  --text-secondary: #585858;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -13,9 +15,8 @@
 html,
 body {
   max-width: 100vw;
-  overflow-x: hidden;
+  /* REMOVED overflow-x: hidden - this was breaking sticky! */
 }
-
 
 body {
   color: var(--foreground);
@@ -41,3 +42,12 @@ a {
     color-scheme: dark;
   }
 }
+
+/* If you need to prevent horizontal scroll, apply it to specific containers instead */
+/* For example: */
+/* 
+main {
+  overflow-x: hidden;
+  width: 100%;
+}
+*/

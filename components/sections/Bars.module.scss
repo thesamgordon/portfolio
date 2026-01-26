@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  position: absolute;
+  overflow: visible;
+  left: 0;
+  top: 110vh;
+  width: 100%;
+  z-index: 0;
+  height: 0;
+}
+
+.bar {
+  background-color: white;
+  flex: 1;
+  border-radius: 400px 400px 0 0;
+}

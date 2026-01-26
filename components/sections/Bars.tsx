@@ -7,6 +7,7 @@ import {
   useTransform,
 } from "motion/react";
 import { useMemo } from "react";
+import styles from "./Bars.module.scss";
 
 function useCubeTransforms(scrollY: MotionValue<number>, heights: number[]) {
   const t0 = useTransform(scrollY, [0, 1000], [400, heights[0]], { ease: cubicBezier(0.4, 0.1, 0.2, 1) });
@@ -48,64 +49,40 @@ export default function Bars() {
   );
 
   return (
-    <motion.div
-      style={{
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "space-between",
-        alignItems: "stretch",
-        position: "absolute",
-        overflow: "visible",
-        left: 0,
-        top: "110vh",
-        width: "100%",
-        zIndex: 0,
-        height: 0,
-      }}
-    >
+    <motion.div className={styles.container}>
       <motion.div
+        className={styles.bar}
         style={{
-          backgroundColor: "white",
           height: cubeHeights[0],
-          flex: 1,
           transform: templates[0],
-          borderRadius: "400px 400px 0 0",
         }}
       />
       <motion.div
+        className={styles.bar}
         style={{
-          backgroundColor: "white",
           height: cubeHeights[1],
-          flex: 1,
           transform: templates[1],
-          borderRadius: "400px 400px 0 0",
         }}
       />
       <motion.div
+        className={styles.bar}
         style={{
-          backgroundColor: "white",
           height: cubeHeights[2],
-          flex: 1,
           transform: templates[2],
-          borderRadius: "400px 400px 0 0",
         }}
       />
       <motion.div
+        className={styles.bar}
         style={{
-          backgroundColor: "white",
           height: cubeHeights[3],
-          flex: 1,
           transform: templates[3],
-          borderRadius: "400px 400px 0 0",
         }}
       />
       <motion.div
+        className={styles.bar}
         style={{
-          backgroundColor: "white",
           height: cubeHeights[4],
-          flex: 1,
           transform: templates[4],
-          borderRadius: "400px 400px 0 0",
         }}
       />
     </motion.div>

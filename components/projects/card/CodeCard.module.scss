@@ -1,0 +1,39 @@
+.codeCardTitle {
+    font-size: 1.1rem;
+    font-weight: 900;
+    font-family: var(--font-inter);
+    line-height: .8;
+    margin-bottom: .3rem;
+}
+
+.codeCardContainer {
+    color: white;
+    padding: 1rem;
+    position: relative;
+}
+
+.codeCardImage {
+    position: absolute;
+    top: 10px;
+    right: -30px;
+    user-select: none;
+}
+
+.codeCardDescription {
+    font-size: .8rem;
+    font-family: var(--font-inter);
+}
+
+@media (max-width: 700px) {
+    .codeCardDescription {
+        font-size: 0.6rem;
+    }
+    
+    .codeCardTitle {
+        font-size: 0.8rem;
+    }
+
+    .codeCardContainer {
+        padding: 0.7rem;
+    }
+}

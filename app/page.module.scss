@@ -1,0 +1,115 @@
+.main {
+  position: relative;
+  overflow: visible;
+}
+
+.spacer {
+  background-color: transparent;
+  height: 100dvh;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.heroFixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+}
+
+.projectWrapper {
+  position: relative;
+  z-index: 2;
+  background-color: transparent;
+}
+
+.footerContainer {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  z-index: 2;
+}
+
+.footerShape {
+  background-color: white;
+  border-top-right-radius: 200px;
+  border-bottom-right-radius: 200px;
+  z-index: -1;
+  height: 20vh;
+  width: 40%;
+
+  @media (max-width: 1000px) {
+    height: 15vh;
+  }
+
+  @media (max-width: 875px) {
+    height: 10vh;
+    width: 50%;
+  }
+}
+
+.footerTextWrapper {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  gap: .2rem;
+  padding: 1rem;
+
+  @media (max-width: 1000px) {
+    padding: .5rem;
+  }
+}
+
+.copyright {
+  color: white;
+  margin: 0;
+  display: block;
+  text-align: right;
+  line-height: 1.5;
+  font-size: 1.25rem;
+
+  @media (max-width: 1000px) {
+    font-size: 1rem;
+  }
+
+  @media (max-width: 875px) {
+    font-size: 0.875rem;
+  }
+
+  @media (max-width: 600px) {
+    font-size: 0.75rem;
+  }
+}
+
+.footerName {
+  font-weight: 900;
+  text-align: right;
+  margin: 0;
+  line-height: 0.67;
+  color: white;
+  letter-spacing: -0.03em;
+  font-size: 10vh;
+
+  @media (max-width: 1300px) {
+    font-size: 9vh;
+  }
+
+  @media (max-width: 1050px) {
+    font-size: 7vh;
+  }
+
+  @media (max-width: 875px) {
+    font-size: 5vh;
+  }
+
+  @media (max-width: 600px) {
+    font-size: 4vh;
+  }
+}

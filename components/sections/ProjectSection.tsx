@@ -1,151 +1,215 @@
-import {
-  motion,
-  useScroll,
-} from "motion/react";
-import Card from "../Card";
-import { useRef } from "react";
-import QLabImage from "@/lib/images/qlab.png";
-import useWindowDimensions from "@/app/hooks/useWindowDimensions";
+"use client";
 
-export default function ProjectSection() {
-  const ref = useRef<HTMLDivElement>(null);
-  const { width } = useWindowDimensions();
+import { motion, useScroll, MotionValue, AnimatePresence } from "motion/react";
+import { useRef, useState, useEffect } from "react";
+import Project from "../projects/Project";
+import styles from "./ProjectSection.module.scss";
+import LinkCard from "../projects/card/LinkCard";
 
-  const projects = [
-    {
-      title: "Sheet Snip",
-      description:
-        "Convert your microphone mute sheets into QLab MIDI cues with the click of a button.",
-      languages: ["Python"],
-      image: QLabImage,
-      contact: true,
-    },
-    {
-      title: "PasteBook",
-      description:
-        "Drop your text into a quick pastebin for easy sharing with many customizable options.",
-      languages: ["Rust", "Svelte"],
-      image: QLabImage,
-      link: "https://pastebook.dev/about",
-    },
-    {
-      title: "ReportBook",
-      description:
-        "Generate a diagnostic report of your device to assist with troubleshooting.",
-      languages: ["Rust", "Tauri"],
-      image: QLabImage,
-      link: "https://github.com/thesamgordon/ReportBook",
-    },
-    {
-      title: "Ledger",
-      description:
-        "Extremely fast upload and download system, reaching speeds upwards of 2–4× that of Google Drive.",
-      languages: ["Rust"],
-      image: QLabImage,
-      link: "https://github.com/ldg-sh/ledger",
-    },
-    {
-      title: "Portfolio",
-      description:
-        "The very website you're on right now, built with Next.js and TypeScript.",
-      languages: ["Next.js", "React"],
-      image: QLabImage,
-      link: "https://github.com/thesamgordon/portfolio",
-    },
-  ];
+const variants = {
+  enter: (direction: number) => ({
+    clipPath: "inset(0% 0% 100% 0%)",
+    scale: 1,
+    y: direction > 0 ? 50 : -50,
+    opacity: 0,
+  }),
+  center: {
+    clipPath: "inset(0% 0% 0% 0%)",
+    scale: 1.1,
+    y: 0,
+    opacity: 1,
+  },
+  exit: (direction: number) => ({
+    clipPath: "inset(100% 0% 0% 0%)",
+    scale: 1.2,
+    y: direction > 0 ? -50 : 50,
+    opacity: 0,
+  }),
+};
+
+const PROJECTS_DATA = [
+  {
+    id: 1,
+    name: "Ledger",
+    githubUrl: "https://github.com",
+    description:
+      "A storage server with a singular focus: reducing the friction between data and the user. Most modern storage solutions are bogged down by unnecessary features and heavy UI. This project proves that you don't have to sacrifice speed for simplicity.",
+    technologies: [
+      {
+        title: "RUST",
+        description:
+          "Performance, safety, and convenience in one, beautiful package.",
+        svgName: "rust",
+        color: "#B7410E",
+      },
+      {
+        title: "NEXT.JS",
+        description: "My go-to for building the modern web.",
+        svgName: "nextjs",
+        color: "#0070F3",
+      },
+      {
+        title: "POSTGRES",
+        description: "Reliable, powerful, and open source database management.",
+        svgName: "postgres",
+        color: "#0064a5",
+      },
+    ],
+    linkCard: (
+      <LinkCard
+        title={"GITHUB"}
+        description={`Browse the code that makes Ledger magical.`}
+        svgName="github"
+        color="#111512"
+        url={"https://github.com/ldg-sh"}
+        interactText={"VISIT SITE"}
+      />
+    ),
+    index: 0,
+  },
+  {
+    id: 2,
+    name: "PasteBook",
+    githubUrl: "https://github.com",
+    description:
+      "An easy on the eyes, portable, lightning fast pastebin written in Svelte and Rust. PasteBook was created as a learning project, but has since evolved into a fully fledged pastebin service with syntax highlighting, self hosting, and more.",
+    technologies: [
+      {
+        title: "RUST",
+        description:
+          "Performance, safety, and convenience in one, beautiful package.",
+        svgName: "rust",
+        color: "#B7410E",
+      },
+      {
+        title: "SVELTE",
+        description:
+          "My web building alternative for creating simple, functional apps.",
+        svgName: "svelte",
+        color: "#FF3E00",
+      },
+      {
+        title: "POSTGRES",
+        description: "Reliable, powerful, and open source database management.",
+        svgName: "postgres",
+        color: "#0064a5",
+      },
+    ],
+    linkCard: (
+      <LinkCard
+        title={"GITHUB"}
+        description={`Browse the code that makes PasteBook magical.`}
+        svgName="github"
+        color="#111512"
+        url={"https://github.com/thesamgordon/pastebook"}
+        interactText={"VISIT SITE"}
+      />
+    ),
+    index: 1,
+  },
+  {
+    id: 3,
+    name: "Sheet Snip",
+    githubUrl: "https://github.com",
+    description:
+      "A Python program designed to convert spreadsheets full of microphone data to workable cue sheets for live performances. Sheet Snip saves sound designers hours of tedious work by automating the conversion process, allowing them to focus on creativity rather than data entry.",
+    technologies: [
+      {
+        title: "Python",
+        description:
+          "The versatile language that powers Sheet Snip's data processing.",
+        svgName: "python",
+        color: "#3776AB",
+      },
+    ],
+    linkCard: (
+      <LinkCard
+        title={"CONTACT"}
+        description={`Get in touch to learn more about Sheet Snip.`}
+        svgName="email"
+        color="#111512"
+        url={"mailto:sam@thesamgordon.com"}
+        interactText={"CONTACT"}
+      />
+    ),
+    index: 2,
+  },
+];
+
+export default function ProjectSection({
+  marginTop,
+}: {
+  marginTop: MotionValue<number>;
+}) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [[activeIndex], setPageState] = useState([0, 0]);
+  const [direction, setDirection] = useState(0);
+  const [scrollValue, setScrollValue] = useState<number>(0);
+
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"],
+  });
+
+  useEffect(() => {
+    return scrollYProgress.on("change", (latest) => {
+      let nextIndex = 0;
+      if (latest >= 0.25 && latest < 0.7) nextIndex = 1;
+      else if (latest >= 0.7) nextIndex = 2;
+
+      if (nextIndex !== activeIndex) {
+        setPageState([nextIndex, nextIndex > activeIndex ? 1 : -1]);
+      }
+    });
+  }, [scrollYProgress, activeIndex]);
+
+  useEffect(() => {
+    window.addEventListener("scroll", (event) => {
+      if (event.defaultPrevented) {
+        return;
+      }
+
+      if (window.scrollY > scrollValue) {
+        setDirection(1);
+      } else {
+        setDirection(-1);
+      }
+
+      setScrollValue(window.scrollY);
+    });
+  });
+
+  const project = PROJECTS_DATA[activeIndex];
 
   return (
-    <section
-      style={{
-        height: "100%",
-        width: "100%",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        backgroundColor: "white",
-        zIndex: 0,
-        position: "relative",
-        paddingLeft: width > 1000 ? "6rem" : "1rem",
-        paddingRight: width > 1000 ? "6rem" : "1rem",
-        paddingTop: "12rem",
-        paddingBottom: width > 1450 ? "20rem" : "8rem",
-      }}
-      ref={ref}
+    <motion.section
+      ref={containerRef}
+      className={styles.section}
+      style={{ marginTop }}
     >
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "flex-start",
-          maxWidth: 1200,
-        }}
-      >
-        <motion.h1
-          style={{
-            fontSize: width > 1450 ? "4rem" : width > 1000 ? "3rem" : "2rem",
-            fontWeight: 800,
-            margin: 0,
-            lineHeight: 0.9,
-            marginLeft: width > 1000 ? 0 : ".5rem",
-            color: "#2D2D2D",
-          }}
-          viewport={{ once: true }}
-          initial={{ opacity: 0, filter: "blur(20px)", y: 40 }}
-          whileInView={{ opacity: 1, filter: "blur(0px)", y: 0 }}
-          transition={{ duration: 0.7 }}
-        >
-          Projects
-        </motion.h1>
-
-        <motion.p
-          style={{
-            fontSize:
-              width > 1450 ? "1.5rem" : width > 1000 ? "1.2rem" : "1rem",
-            fontWeight: 400,
-            marginBottom: width > 1000 ? "2rem" : "0.5rem",
-            marginLeft: width > 1000 ? 0 : ".5rem",
-            color: "#585858",
-          }}
-          viewport={{ once: true }}
-          initial={{ opacity: 0, filter: "blur(20px)", y: 40 }}
-          whileInView={{ opacity: 1, filter: "blur(0px)", y: 0 }}
-          transition={{ duration: 0.7 }}
-        >
-          A few of my favorite projects that I&apos;ve worked on recently.
-        </motion.p>
-
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          style={{
-            display: "grid",
-            gridTemplateColumns:
-              width > 1200 ? "1fr 1fr" : width > 600 ? "1fr 1fr" : "1fr",
-            gap: width > 1200 ? "1rem" : "1rem",
-            marginBottom: "2rem",
-            width: width > 1200 ? "max-content" : "100%",
-          }}
-          transition={{
-            staggerChildren: 0.15,
-            delayChildren: 0.2,
-          }}
-        >
-          {projects.map((proj, i) => (
-            <motion.div
-              key={proj.title}
-              initial={{ opacity: 0, filter: "blur(20px)", y: 40 }}
-              whileInView={{ opacity: 1, filter: "blur(0px)", y: 0 }}
-              viewport={{ once: true }}
-              transition={{
-                duration: 0.7,
-              }}
-            >
-              <Card {...proj} />
-            </motion.div>
-          ))}
-        </motion.div>
+      <div className={styles.stickyWrapper}>
+        <AnimatePresence mode="popLayout" custom={direction} initial={false}>
+          <motion.div
+            key={project.id}
+            custom={direction}
+            variants={variants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={{ duration: 0.8, ease: [0.813, 0, 0.182, 0.994] }}
+            className={styles.projectContainer}
+          >
+            <Project
+              technologies={project.technologies}
+              linkCard={project.linkCard}
+              name={project.name}
+              description={project.description}
+              index={project.index}
+              scrollDirection={direction}
+            />
+          </motion.div>
+        </AnimatePresence>
       </div>
-    </section>
+    </motion.section>
   );
 }
