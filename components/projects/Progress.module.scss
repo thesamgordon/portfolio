@@ -1,0 +1,42 @@
+.progressContainer {
+    width: auto;
+    position: absolute;
+    bottom: 2rem;
+    transform: translateX(-50%);
+    left: 50%;
+}
+
+.sectionDot {
+    background-color: #dbdbdb;
+    height: 5px;
+    border-radius: 4px;
+    width: 20px;
+    overflow: hidden;
+    transition: width 0.8s cubic-bezier(0.813, 0, 0.182, 0.994), background-color 0.8s cubic-bezier(0.813, 0, 0.182, 0.994);
+}
+
+.sectionsContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.parentActive {
+    width: 20px;
+}
+
+.progressBar {
+    background-color: var(--text-secondary);
+    border-radius: 4px;
+    height: 100%;
+    transition: background-color 0.8s cubic-bezier(0.813, 0, 0.182, 0.994);
+}
+
+.progressBar:not(.parentActive) {
+    width: 0%;
+    transition: width 0.8s cubic-bezier(0.813, 0, 0.182, 0.994), background-color 0.8s cubic-bezier(0.813, 0, 0.182, 0.994);
+}
+
+.active {
+    width: 80px;
+}

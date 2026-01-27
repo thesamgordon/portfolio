@@ -57,7 +57,7 @@ export default function Project({
   const { scrollYProgress } = useScroll();
   const { width } = useWindowDimensions();
 
-  const repeatedName = Array(10).fill(name.toUpperCase()).join(" • ");
+  const repeatedName = Array(20).fill(name.toUpperCase()).join(" • ");
 
   const x = useTransform(
     scrollYProgress,

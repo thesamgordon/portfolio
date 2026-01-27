@@ -5,6 +5,7 @@ import { useRef, useState, useEffect, ReactNode } from "react";
 import Project from "../projects/Project";
 import styles from "./ProjectSection.module.scss";
 import LinkCard from "../projects/card/LinkCard";
+import Progress from "../projects/Progress";
 
 const variants = {
   enter: (direction: number) => ({
@@ -157,23 +158,30 @@ export default function ProjectSection({
   const [[activeIndex], setPageState] = useState([0, 0]);
   const [direction, setDirection] = useState(0);
   const [scrollValue, setScrollValue] = useState<number>(0);
+  const [relativeY, setRelativeY] = useState<number>(0);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"],
   });
 
+  const interval = 1 / PROJECTS_DATA.length;
+
   useEffect(() => {
     return scrollYProgress.on("change", (latest) => {
       let nextIndex = 0;
-      if (latest >= 0.25 && latest < 0.7) nextIndex = 1;
-      else if (latest >= 0.7) nextIndex = 2;
+
+      setRelativeY(latest);
+
+      if (latest >= interval * 0 && latest < interval * 1) nextIndex = 0;
+      else if (latest >= interval * 1 && latest < interval * 2) nextIndex = 1;
+      else if (latest >= interval * 2) nextIndex = 2;
 
       if (nextIndex !== activeIndex) {
         setPageState([nextIndex, nextIndex > activeIndex ? 1 : -1]);
       }
     });
-  }, [scrollYProgress, activeIndex]);
+  }, [scrollYProgress, activeIndex, relativeY]);
 
   useEffect(() => {
     window.addEventListener("scroll", (event) => {
@@ -221,6 +229,11 @@ export default function ProjectSection({
             />
           </motion.div>
         </AnimatePresence>
+        <Progress
+          progress={((relativeY - (activeIndex * interval)) / interval) * 100}
+          activeSection={activeIndex}
+          totalSections={PROJECTS_DATA.length}
+        />
       </div>
     </motion.section>
   );
