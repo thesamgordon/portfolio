@@ -133,13 +133,20 @@ const PROJECTS_DATA = [
         svgName: "python",
         color: "#3776AB",
       },
+      {
+        title: "XLSX",
+        description:
+          "The format that makes handling spreadsheet data a breeze.",
+        svgName: "xlsx",
+        color: "#207245",
+      }
     ],
     linkCards: [
       <LinkCard
         title={"CONTACT"}
         description={`Get in touch to learn more about Sheet Snip.`}
         svgName="email"
-        color="#111512"
+        color="#0078D4"
         url={"mailto:sam@thesamgordon.com"}
         interactText={"CONTACT"}
         key={"contact-card"}
