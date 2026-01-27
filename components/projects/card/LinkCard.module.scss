@@ -17,10 +17,15 @@
         transform 0.3s ease-in-out,
         filter 0.3s ease-in-out;
     cursor: pointer;
+    overflow: hidden;
 
     &:hover {
         box-shadow: 0 0 30px rgba(30, 18, 18, 0.3);
         filter: brightness(1.2);
+
+        .linkButtonIcon {
+            transform: translate(20px, -20px);
+        }
     }
 
     &:active {
@@ -59,9 +64,37 @@
     bottom: 1rem;
     right: 1rem;
     display: flex;
+    align-items: center;
     gap: 0.3rem;
 }
 
+.linkButtonIconWrapper {
+    width: 18px;
+    height: 18px;
+    position: relative;
+    overflow: hidden; 
+}
+
+.linkButtonIcon {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s;
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('/svg/link.svg') no-repeat center;
+        background-size: contain;
+
+        transform: translate(-20px, 20px);
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s;
+    }
+}
 
 @media (max-width: 1150px) {
     .linkCardSvg {
