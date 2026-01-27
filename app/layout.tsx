@@ -45,10 +45,38 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Sam Gordon",
   description: "A theater enthusiast and a passionate developer, working to create technology that enhances the performing arts and everyday life.",
+  openGraph: {
+        title: "Sam Gordon",
+        description: "A theater enthusiast and a passionate developer, working to create technology that enhances the performing arts and everyday life.",
+        images: {
+            url: "https://thesamgordon.com/opengraph-image.png",
+            alt: "Sam Gordon",
+            type: "image/png",
+            width: 1200,
+            height: 630,
+        },
+        type: "website",
+        locale: "en_US",
+    },
+    twitter: {
+        title: "Sam Gordon",
+        card: "summary_large_image",
+        description: "A theater enthusiast and a passionate developer, working to create technology that enhances the performing arts and everyday life.",
+        images: {
+            url: "https://thesamgordon.com/opengraph-image.png",
+            alt: "Sam Gordon",
+            type: "image/png",
+            width: 1200,
+            height: 630,
+        },
+    },
+    manifest: "https://thesamgordon.com/manifest.json",
+    keywords: ["Sam Gordon"],
+    robots: "index, follow",
 };
 
 export const viewport: Viewport = {
-  themeColor: "#BE0900",
+  themeColor: "#980133",
 };
 
 export default function RootLayout({
