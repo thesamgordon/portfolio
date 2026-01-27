@@ -91,7 +91,8 @@
 
 @media (max-width: 700px) {
     .projectContainer {
-        width: 90%;
+        width: calc(100% - 2rem);
+        height: auto;
     }
 
     .rightBox {

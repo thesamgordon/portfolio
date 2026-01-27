@@ -1,4 +1,4 @@
-import Image, { StaticImageData } from "next/image";
+import { StaticImageData } from "next/image";
 import { motion } from "motion/react";
 import useWindowDimensions from "@/app/hooks/useWindowDimensions";
 import styles from "./Card.module.scss";

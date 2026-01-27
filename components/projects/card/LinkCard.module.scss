@@ -62,6 +62,19 @@
     gap: 0.3rem;
 }
 
+
+@media (max-width: 1150px) {
+    .linkCardSvg {
+        width: 180px;
+        height: 180px;
+    }
+
+    .linkCardContainer {
+        width: 180px;
+        height: 180px;
+    }
+}
+
 @media (max-width: 700px) {
     .linkCardDescription {
         font-size: 0.6rem;
@@ -95,17 +108,5 @@
     .linkButtonContainer {
         bottom: 0.5rem;
         right: 0.5rem;
-    }
-}
-
-@media (max-width: 1150px) {
-    .linkCardSvg {
-        width: 180px;
-        height: 180px;
-    }
-
-    .linkCardContainer {
-        width: 180px;
-        height: 180px;
     }
 }
