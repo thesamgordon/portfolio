@@ -103,6 +103,7 @@
     .leftBoxDescription {
         width: 100%;
         font-size: 0.6rem;
+        padding-bottom: 5vh;
     }
 
     .leftBoxTitle {
@@ -112,5 +113,10 @@
 
     .leftBox {
         padding: 0.7rem;
+        border-right: 1px solid #dbdbdb;
+    }
+
+    .topContainer {
+        flex-direction: column;
     }
 }
