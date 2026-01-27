@@ -1,12 +1,13 @@
-<svg fill="white" height="800px" width="800px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
-	 viewBox="0 0 512 512" xml:space="preserve" style="transform: scale(0.7); opacity: .2; stroke: white">
-<g>
+<svg fill="white" height="800px" width="800px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+	xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve"
+	style="transform: scale(0.7); opacity: .2" stroke="white">
 	<g>
-		<path d="M460.245,64H51.733C23.156,64,0,87.168,0,115.755v280.491C0,424.833,23.156,448,51.733,448h408.512
+		<g>
+			<path style="fill: white; stroke: white;" d="M460.245,64H51.733C23.156,64,0,87.168,0,115.755v280.491C0,424.833,23.156,448,51.733,448h408.512
 			C488.822,448,512,424.833,512,396.245V115.755C512,87.167,488.822,64,460.245,64z M281.229,246.889
 			c-14.357,13.044-36.113,13.044-50.377,0.084L74.591,106.667h362.804L281.229,246.889z M42.667,135.344l105.065,94.338
 			L42.667,369.769V135.344z M179.603,258.299l22.65,20.337c30.443,27.66,77.039,27.66,107.575-0.084l22.557-20.254L442.66,405.333
-			H69.327L179.603,258.299z M364.255,229.682l105.078-94.35v234.454L364.255,229.682z"/>
+			H69.327L179.603,258.299z M364.255,229.682l105.078-94.35v234.454L364.255,229.682z" />
+		</g>
 	</g>
-</g>
 </svg>
