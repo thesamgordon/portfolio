@@ -10,7 +10,7 @@
     background-color: #dbdbdb;
     height: 5px;
     border-radius: 4px;
-    width: 20px;
+    width: 25px;
     overflow: hidden;
     transition: width 0.8s cubic-bezier(0.813, 0, 0.182, 0.994), background-color 0.8s cubic-bezier(0.813, 0, 0.182, 0.994);
 }
@@ -18,7 +18,7 @@
 .sectionsContainer {
     display: flex;
     flex-direction: row;
-    gap: 1rem;
+    gap: .5rem;
 }
 
 .parentActive {
@@ -38,5 +38,5 @@
 }
 
 .active {
-    width: 80px;
+    width: 90px;
 }
