@@ -1,5 +1,5 @@
 .linkCardTitle {
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 900;
     font-family: var(--font-inter);
     line-height: 0.8;
@@ -53,7 +53,7 @@
 }
 
 .linkButtonText {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     font-family: var(--font-inter);
     text-decoration: underline;
     font-weight: 400;
@@ -69,30 +69,34 @@
 }
 
 .linkButtonIconWrapper {
-    width: 18px;
-    height: 18px;
+    width: 15px;
+    height: 15px;
     position: relative;
-    overflow: hidden; 
+    overflow: hidden;
 }
 
 .linkButtonIcon {
     position: relative;
     width: 100%;
     height: 100%;
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s;
+    transition:
+        transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+        opacity 0.2s;
 
     &::after {
-        content: '';
+        content: "";
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background: url('/svg/link.svg') no-repeat center;
+        background: url("/svg/link.svg") no-repeat center;
         background-size: contain;
 
         transform: translate(-20px, 20px);
-        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s;
+        transition:
+            transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+            opacity 0.2s;
     }
 }
 
@@ -119,7 +123,7 @@
     }
 
     .linkCardTitle {
-        font-size: 0.8rem;
+        font-size: 0.7rem;
         margin-bottom: 0.2rem;
     }
 

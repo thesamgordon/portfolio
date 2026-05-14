@@ -1,9 +1,9 @@
 .codeCardTitle {
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 900;
     font-family: var(--font-inter);
-    line-height: .8;
-    margin-bottom: .3rem;
+    line-height: 0.8;
+    margin-bottom: 0.4rem;
 }
 
 .codeCardContainer {
@@ -20,7 +20,7 @@
 }
 
 .codeCardDescription {
-    font-size: .8rem;
+    font-size: 0.8rem;
     font-family: var(--font-inter);
 }
 
@@ -28,9 +28,10 @@
     .codeCardDescription {
         font-size: 0.6rem;
     }
-    
+
     .codeCardTitle {
-        font-size: 0.8rem;
+        font-size: 0.7rem;
+        margin-bottom: 0.2rem;
     }
 
     .codeCardContainer {
