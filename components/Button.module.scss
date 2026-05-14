@@ -1,51 +1,53 @@
 .wrapper {
-  position: relative;
+    position: relative;
 }
 
 .button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: white;
-  border: none;
-  font-weight: bold;
-  cursor: pointer;
-  font-family: var(--font-overused-groteske);
-  transition: box-shadow 0.3s, transform 0.3s;
-  
-  width: 250px;
-  height: 57px;
-  border-radius: 0;
-  font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: var(--font-overused-groteske);
+    transition:
+        box-shadow 0.3s,
+        transform 0.3s;
 
-  &:hover {
-    box-shadow: 0 0 30px rgba(30, 18, 18, 0.3);
-    transform: translateY(-2px);
-  }
+    width: 220px;
+    height: 48px;
+    border-radius: 0;
+    font-size: 18px;
 
-  &.clicked {
-    box-shadow: 0 0 30px rgba(30, 18, 18, 0.4);
-    transform: translateY(0.5px);
-  }
+    &:hover {
+        box-shadow: 0 0 30px rgba(30, 18, 18, 0.3);
+        transform: translateY(-2px);
+    }
 
-  @media (max-width: 1000px) {
-    width: 120px;
-    height: 35px;
-    font-size: 12px;
-  }
+    &.clicked {
+        box-shadow: 0 0 30px rgba(30, 18, 18, 0.4);
+        transform: translateY(0.5px);
+    }
+
+    @media (max-width: 1000px) {
+        width: 120px;
+        height: 35px;
+        font-size: 12px;
+    }
 }
 
 .text {
-  color: #9a0100;
-  font-weight: bold;
+    color: #9a0100;
+    font-weight: bold;
 }
 
 .dropContainer {
-  position: absolute;
-  padding-top: 5px;
-  width: 250px;
+    position: absolute;
+    padding-top: 5px;
+    width: 220px;
 
-  @media (max-width: 1000px) {
-    width: 120px;
-  }
+    @media (max-width: 1000px) {
+        width: 120px;
+    }
 }
