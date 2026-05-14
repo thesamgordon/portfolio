@@ -1,11 +1,11 @@
 "use client";
 
-import { motion, useScroll, MotionValue, AnimatePresence } from "motion/react";
-import { useRef, useState, useEffect, ReactNode } from "react";
-import Project from "../projects/Project";
-import styles from "./ProjectSection.module.scss";
+import { AnimatePresence, motion, MotionValue, useScroll } from "motion/react";
+import { ReactNode, useEffect, useRef, useState } from "react";
 import LinkCard from "../projects/card/LinkCard";
 import Progress from "../projects/Progress";
+import Project from "../projects/Project";
+import styles from "./ProjectSection.module.scss";
 
 const variants = {
   enter: (direction: number) => ({
@@ -65,6 +65,15 @@ const PROJECTS_DATA = [
         url={"https://github.com/ldg-sh"}
         interactText={"VISIT SITE"}
         key={"github-card"}
+      />,
+      <LinkCard
+        title={"LIVE PROTOTYPE"}
+        description={`Explore the live prototype of Ledger.`}
+        svgName="link-large"
+        color="#006118"
+        url={"https://ldg.sh/about"}
+        interactText={"VISIT SITE"}
+        key={"prototype-card"}
       />,
     ],
     index: 0,
@@ -139,7 +148,7 @@ const PROJECTS_DATA = [
           "The format that makes handling spreadsheet data a breeze.",
         svgName: "xlsx",
         color: "#207245",
-      }
+      },
     ],
     linkCards: [
       <LinkCard
@@ -237,7 +246,7 @@ export default function ProjectSection({
           </motion.div>
         </AnimatePresence>
         <Progress
-          progress={((relativeY - (activeIndex * interval)) / interval) * 100}
+          progress={((relativeY - activeIndex * interval) / interval) * 100}
           activeSection={activeIndex}
           totalSections={PROJECTS_DATA.length}
         />
